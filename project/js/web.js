@@ -85,7 +85,8 @@ $(document).ready(
                     for(var k=0;k<=td_ay.length;k++){
                         console.log(td_ay.length);
                         var title = title_ay.find(".css_td").eq(k).text();
-                        td_ay.eq(k).prepend("<span>"+title+"</span>");
+                        var oriHTML = td_ay.eq(k).html();
+                        td_ay.eq(k).html("<span>"+title+"</span><span>"+oriHTML+"</span>");
                     }
                 }
             }) 

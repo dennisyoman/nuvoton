@@ -830,7 +830,7 @@ body.noscroll {
                         @include transition(all, 0.3s);
                     }
 
-                    &:hover {
+                    &:hover, &:focus {
                         color: $main;
                         background: #fff;
 
@@ -927,7 +927,7 @@ body.noscroll {
                             display:none;
                         }
 
-                        &:hover {
+                        &:hover, &:focus {
                             color: $main;
                             background: #fff;
 
@@ -990,7 +990,7 @@ body.noscroll {
                     @include border-radius(5px);
                     @include transition(all,.3s);
 
-                    &:hover{
+                    &:hover, &:focus{
                         background:$main;
                         color:#fff;
                     }
@@ -1042,7 +1042,7 @@ body.noscroll {
                 cursor:pointer;
                 @include box;
 
-                &:hover{
+                &:hover, &:focus{
                     color:$text;
                 }
 
@@ -1187,7 +1187,7 @@ body.noscroll {
                     background: $third;
                     margin:5px;
 
-                    &:hover {
+                    &:hover, &:focus {
                         @include opacity(1);
                     }
 
@@ -1239,7 +1239,7 @@ body.noscroll {
                         @include border-radius(5px);
                         text-decoration:none;
 
-                        &:hover{
+                        &:hover, &:focus{
                             border-color:$third;
                             color:$text;
                         }
@@ -1322,7 +1322,7 @@ body.noscroll {
         display: table-row;
         @include box;
 
-        &:hover{
+        &:hover, &:focus{
             background:$gray;
         }
 
@@ -1341,7 +1341,7 @@ body.noscroll {
             display: block;
             border:1px solid #ccc;
 
-            border-top:4px solid $main;
+            //border-top:4px solid $main;
             margin-bottom:15px;
             &:first-child{
                 display:none;
@@ -1359,33 +1359,39 @@ body.noscroll {
         a{
             color:$third;
 
-            &:hover{
+            &:hover, &:focus{
                 color:$main;
             }
         }
 
         span{
-            display:none;
+            &:first-child{
+                display:none;
+            }
         }
 
         @media screen and (max-width: $mobile) {
+            padding:0px;
             display: block;
             position:relative;
-            border-top:1px solid #eee;
+            border-top:1px solid #ddd;
             border-right:0px solid #ddd;
-            padding-left:115px;
-            @include box;
-            min-height:35px;
 
+            @include box;
+            display:flex;
+            align-items:stretch;
             span{
-                display:inline-block;
-                width:100px;
-                position:absolute;
-                top:0;
-                left:0;
-                color:$main;
-                @include box;
-                padding:10px;
+                min-height:35px;
+                width:100%;
+                padding:5px 10px;
+                &:first-child{
+                    display:block;
+                    width:40%;
+                    background:$main;
+                    background-image: linear-gradient(to right,$main, $second);
+                    color:#fff;
+                    
+                }
             }
         }
     }
