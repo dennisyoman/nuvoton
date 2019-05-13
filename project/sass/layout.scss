@@ -516,6 +516,7 @@ body.noscroll {
                 }
 
                 &.lang {
+                    position:relative;
                     margin-right: 0;
 
                     a {
@@ -525,6 +526,46 @@ body.noscroll {
                             content: "\f0ac";
                             font-family: 'fontawesome';
                         }
+                    }
+
+                    select, option {
+                        position:absolute;
+                        top:0;
+                        right:0;
+                        margin: 0;
+                        border: none;
+                        border-right: none;
+                        text-align: center;
+                        letter-spacing: 0.05em;
+                        color: $text;
+                        width: auto;
+                        outline: none;
+                        height: 40px;
+                        width:100%;
+                        line-height: 40px;
+                        background: #fff;
+                        text-align:center;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        cursor: pointer;
+                        padding: 0;
+                        font-size: 13px;
+
+                        @include box;
+                        @include opacity(0);
+                        &::-ms-expand {
+                            /* for IE 11 */
+                            display: none;
+                        }
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+
+                    option{
+                        padding:10px;
                     }
                 }
 
