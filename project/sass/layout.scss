@@ -1050,7 +1050,7 @@ body.noscroll {
             }
 
             @media screen and (max-width: $mobile) {
-                padding: $gap2;
+                padding: $gap2 0;
                 h3{
                     font-size:22px;
                     display:block;
@@ -1123,9 +1123,6 @@ body.noscroll {
         }
 
         .tab_content{
-            padding:$gap;
-            @include box;
-            margin-bottom:50px;
             >div{
                 position:relative;
                 display:none;
@@ -1153,22 +1150,20 @@ body.noscroll {
                     @include opacity(1);
                 }
             }
-
-            @media screen and (max-width: $mobile) {
-                padding:$gap2 0;
-
-                >div{
-                    padding-bottom:50px;
-                }
-            }
         }
 
         .gallery{
+            padding:$gap;
+            @include box;
             width:100%;
             //background:#eee;
             margin-bottom:50px;
             
             position:relative;
+
+            @media screen and (max-width: $mobile) {
+                padding:$gap2 0;
+            }
 
             .slides {
                 position: relative;
@@ -1250,6 +1245,9 @@ body.noscroll {
         }
 
         .article{
+            padding:$gap;
+            @include box;
+            margin-bottom:50px;
             section{
                 margin-bottom:20px;
             }
@@ -1259,9 +1257,20 @@ body.noscroll {
                 line-height: 1.5;
             }
 
+            @media screen and (max-width: $mobile) {
+                padding:$gap2 0;
+            }
+
         }
 
         .purchase{
+            padding:$gap;
+            @include box;
+            margin-bottom:50px;
+
+            @media screen and (max-width: $mobile) {
+                padding:$gap2 0;
+            }
   
             h3{
                 font-size:24px;
