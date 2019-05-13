@@ -126,6 +126,48 @@ body.noscroll {
             }
         }
 
+        .collection{
+            position:fixed;
+            top:160px;
+            right:0;
+            width:30px;
+            padding:15px 8px;
+            color:#fff;
+            line-height: 20px;
+            text-align:center;
+            background:$main;
+            @include border-radius(8px 0 0 8px);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            vertical-align: middle;
+
+            &::before{
+                margin:0;
+                margin-bottom:10px;
+            }
+            
+
+            
+
+            @media screen and (max-width: $mobile) {
+                position:fixed;
+                top:50px;
+                width:auto;
+                right:auto;
+                left:0;
+                z-index:2;
+                font-size:14px;
+                line-height: 16px;
+                padding:12px 20px;
+                @include border-radius(0);
+                @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0));
+                border-right:1px solid rgba(255,255,255,.3);
+                &::before{
+                    display:none;
+                }
+            }
+        }
+
         @media screen and (max-width: $mobile) {
             position: absolute;
             top: 90px;
@@ -569,7 +611,7 @@ body.noscroll {
                     cursor: auto;
 
                     @media screen and (max-width: $mobile) {
-                        width: calc(100vw - 75px);
+                        width: calc(100vw - 155px);
                     }
                 }
             }
