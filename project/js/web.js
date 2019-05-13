@@ -77,7 +77,7 @@ $(document).ready(
 
         //table
         if ($(".table").length > 0) {
-            $(".table1").each(function() {
+            $(".table").each(function() {
                 var title_ay = $(this).find(".css_tr").eq(0);
                 var tr_ay = $(this).find(".css_tr");
                 for(var i=1;i<=tr_ay.length;i++){
