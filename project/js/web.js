@@ -179,15 +179,19 @@ $(document).ready(
 
 
 
-function scrollFn() {}
+function scrollFn() {
+
+}
+
     
 
 //
 
 
 function resizeScreen() {
-
+    $(".sticker").sticky('update');
 }
+
 
 //gallery
 function gallerize(tar){
@@ -426,4 +430,5 @@ var validateQuery = function() {
 
 window.onload = function(){
     bgImg();
+    //$(".sticker").sticky({topSpacing:100,zIndex:10});
 };

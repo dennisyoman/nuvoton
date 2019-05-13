@@ -817,6 +817,7 @@ body.noscroll {
         max-width: 350px;
         min-width: 220px;
         position:relative;
+        display:none;
 
         @include box;
 
@@ -1066,10 +1067,13 @@ body.noscroll {
 
         .tab{
             //margin-top:2px;
+            //position:relative;
+            //top:100px;
             border-top: 3px solid #eee;
             border-bottom: 1px solid #ddd;
             display:flex;
             background: #fff;
+            z-index:10;
             //@include box-shadow(0 2px 4px rgba(0,0,0,.1));
 
             >div{
@@ -1346,7 +1350,9 @@ body.noscroll {
     }
 
     .table_container{
-        overflow: auto;
+        //max-width:50%;
+        //overflow: auto;
+        overflow:auto;
         border:1px solid #ccc;              
         @include box;
         @media screen and (max-width: $mobile) {
