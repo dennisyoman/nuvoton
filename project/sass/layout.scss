@@ -857,7 +857,7 @@ body.noscroll {
             padding:0;
             padding-top:50px;
             background:#fff;
-            //@include transition(all,.3s);
+            @include transition(transform,.3s);
             @include translate(-100%,0);
 
             &.active{
