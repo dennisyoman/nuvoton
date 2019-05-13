@@ -1,0 +1,73 @@
+//font
+@mixin font-family($font-face, $weight, $size, $space) {
+    font-family: $font-face;
+    font-weight: $weight;
+    font-size: $size;
+    letter-spacing: $space;
+}
+
+//basics
+@mixin rotate($ang) {
+    -ms-transform: rotate($ang);
+    -webkit-transform: rotate($ang);
+    transform: rotate($ang);
+}
+
+@mixin transition($type, $speed) {
+    -webkit-transition: $type $speed;
+    transition: $type $speed;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
+@mixin border-radius($size) {
+    border-radius: $size;
+    -moz-border-radius: $size;
+    -webkit-border-radius: $size;
+}
+
+@mixin box-shadow($var) {
+    -webkit-box-shadow: $var;
+    -moz-box-shadow: $var;
+    box-shadow: $var;
+}
+
+@mixin text-shadow($var) {
+    -webkit-text-shadow: $var;
+    -moz-text-shadow: $var;
+    text-shadow: $var;
+}
+
+@mixin opacity($var) {
+    opacity: $var;
+    -moz-opacity: $var;
+    -khtml-opacity: $var;
+    filter: alpha(opacity = $var * 100);
+}
+
+@mixin box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin clear {
+    content: '';
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+    width:100%;
+}
+
+@mixin translate($varx, $vary) {
+    -ms-transform: translate($varx, $vary);
+    -webkit-transform: translate($varx, $vary);
+    transform: translate($varx, $vary);
+}
+
+@mixin scale($var){
+    -ms-transform: scale($var);
+    -webkit-transform: scale($var);
+    transform: scale($var);
+}
