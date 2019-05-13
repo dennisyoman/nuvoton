@@ -167,7 +167,7 @@ body.noscroll {
                     text-decoration: none;
                     letter-spacing: 0.1em;
                     cursor: pointer;
-                    padding: 0 3%;
+                    padding: 0 2%;
 
                     &::after {
                         content: "\f0d7";
@@ -1216,6 +1216,33 @@ body.noscroll {
     }
 }
 
+.collection{
+    display:inline-block;
+    width:auto;
+    font-size:16px;
+    color:#fff;
+    line-height: 24px;
+    text-align:center;
+    background:$main;
+    padding:13px 20px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    vertical-align: middle;
+    @include border-radius(8px);
+    @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
+
+    &::before{
+        margin-right:10px;
+        vertical-align: middle;
+        content:"";
+        display:inline-block;
+        width:30px;
+        height:24px;
+        background: url("../images/collection.png") no-repeat center center;
+        background-size: 100% 100%;
+    }
+}
+
 .search_footer {
     width: 100%;
     padding: 80px 0;
@@ -1234,8 +1261,12 @@ body.noscroll {
         @include text-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
     }
 
-    .advancedSearch {
+    .collection {
         margin-top: 35px;
+    }
+
+    .advancedSearch {
+        margin-top: 15px;
     }
 
     @media screen and (max-width: $mobile) {
