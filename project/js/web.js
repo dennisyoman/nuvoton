@@ -430,5 +430,5 @@ var validateQuery = function() {
 
 window.onload = function(){
     bgImg();
-    //$(".sticker").sticky({topSpacing:100,zIndex:10});
+    //$(".sticker").sticky({topSpacing:90,zIndex:10,center:true});
 };
