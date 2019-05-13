@@ -1338,17 +1338,45 @@ body.noscroll {
 }
 
 .table{
-    //margin-bottom:$gap;
 
     h3{
         font-size:14px;
         line-height: 1.5;
         color:$text;
         letter-spacing: 0.05em;
-        margin-bottom:10px;
+        margin-bottom:25px;
         border-left:3px solid $third;
         padding-left:10px;
         @include box;
+
+   
+        a {
+            float: right;
+            display: inline-block;
+            font-size: 14px;
+            color: #008000;
+            text-decoration: none;
+            padding: 0 15px;
+            line-height: 28px;
+            border: 1px solid #008000;
+
+            @include border-radius(5px);
+            @include transition(all,.3s);
+
+            &:hover, &:focus{
+                background:#008000;
+                color:#fff;
+            }
+
+            &.export {
+                &::before {
+                    content: "\f0f6";
+                    font-family: 'fontawesome';
+                    margin-right: 8px;
+                }
+            }
+        }
+        
     }
 
     .table_container{
@@ -1391,7 +1419,7 @@ body.noscroll {
             border:1px solid #ccc;
 
             //border-top:4px solid $main;
-            margin-bottom:15px;
+            margin-bottom:5px;
             &:first-child{
                 display:none;
             }
