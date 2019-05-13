@@ -1308,6 +1308,9 @@ body.noscroll {
         overflow: auto;
         border:1px solid #ccc;              
         @include box;
+        @media screen and (max-width: $mobile) {
+            border:none;
+        }
     }
     .css_table {
         display:table;
@@ -1333,6 +1336,17 @@ body.noscroll {
                 border-right:1px solid #ae210e;
             }
         }
+
+        @media screen and (max-width: $mobile) {
+            display: block;
+            border:1px solid #ccc;
+
+            border-top:4px solid $main;
+            margin-bottom:15px;
+            &:first-child{
+                display:none;
+            }
+        }
     }
     .css_td {
         color:$text;
@@ -1343,7 +1357,36 @@ body.noscroll {
         @include box;
 
         a{
-            color:$main;
+            color:$third;
+
+            &:hover{
+                color:$main;
+            }
+        }
+
+        span{
+            display:none;
+        }
+
+        @media screen and (max-width: $mobile) {
+            display: block;
+            position:relative;
+            border-top:1px solid #eee;
+            border-right:0px solid #ddd;
+            padding-left:115px;
+            @include box;
+            min-height:35px;
+
+            span{
+                display:inline-block;
+                width:100px;
+                position:absolute;
+                top:0;
+                left:0;
+                color:$main;
+                @include box;
+                padding:10px;
+            }
         }
     }
 }

@@ -74,6 +74,22 @@ $(document).ready(
                 })
             }) 
         }
+
+        //table
+        if ($(".table").length > 0) {
+            $(".table1").each(function() {
+                var title_ay = $(this).find(".css_tr").eq(0);
+                var tr_ay = $(this).find(".css_tr");
+                for(var i=1;i<=tr_ay.length;i++){
+                    var td_ay = tr_ay.eq(i).find(".css_td");
+                    for(var k=0;k<=td_ay.length;k++){
+                        console.log(td_ay.length);
+                        var title = title_ay.find(".css_td").eq(k).text();
+                        td_ay.eq(k).prepend("<span>"+title+"</span>");
+                    }
+                }
+            }) 
+        }
         
 
 
