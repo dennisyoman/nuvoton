@@ -14,6 +14,10 @@ body.noscroll {
     overflow: hidden;
 }
 
+.disabled {
+    pointer-events: none !important;
+}
+
 .wrapper {
     padding-top: 100px;
     background: #fff;
@@ -93,7 +97,7 @@ body.noscroll {
             //background: $second;
 
             &::after {
-                //color: #fff;
+                color: $third;
                 content: "\f00d";
             }
         }
@@ -126,45 +130,47 @@ body.noscroll {
             }
         }
 
-        .collection{
-            position:fixed;
-            z-index:1;
-            top:160px;
-            right:0;
-            width:30px;
-            padding:15px 8px;
-            color:#fff;
+        .collection {
+            position: fixed;
+            z-index: 1;
+            top: 160px;
+            right: 0;
+            width: 30px;
+            padding: 15px 8px;
+            color: #fff;
             line-height: 20px;
-            text-align:center;
-            background:$main;
+            text-align: center;
+            background: $main;
+
             @include border-radius(8px 0 0 8px);
+
             letter-spacing: 0.1em;
             text-decoration: none;
             vertical-align: middle;
 
-            &::before{
-                margin:0;
-                margin-bottom:10px;
+            &::before {
+                margin: 0;
+                margin-bottom: 10px;
             }
-            
-
-            
 
             @media screen and (max-width: $mobile) {
-                position:fixed;
-                top:50px;
-                width:auto;
-                right:auto;
-                left:0;
-                z-index:2;
-                font-size:14px;
+                position: fixed;
+                top: 50px;
+                width: auto;
+                right: auto;
+                left: 0;
+                z-index: 2;
+                font-size: 14px;
                 line-height: 16px;
-                padding:12px 20px;
+                padding: 12px 20px;
+
                 @include border-radius(0);
                 @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0));
-                border-right:1px solid rgba(255,255,255,.3);
-                &::before{
-                    display:none;
+
+                border-right: 1px solid rgba(255, 255, 255, 0.3);
+
+                &::before {
+                    display: none;
                 }
             }
         }
@@ -220,7 +226,7 @@ body.noscroll {
                     }
                 }
 
-                &:hover, &:focus {
+                &.trig {
                     @media screen and (min-width: $mobile) {
                         > a {
                             background: #eee;
@@ -299,12 +305,12 @@ body.noscroll {
                             padding-left: 0;
 
                             &::before {
-                                content: "\f053";
+                                content: "\f060";
                                 display: none;
                                 text-align: center;
                                 width: 40px;
                                 margin: 0;
-                                color: $second;
+                                color: $third;
                             }
                         }
                     }
@@ -326,8 +332,13 @@ body.noscroll {
                     > li.back {
                         @media screen and (max-width: $mobile) {
                             left: 0;
-                            padding-left: 40px;
+                            padding-left: 0px;
                             width: 100vw;
+                            pointer-events: none;
+
+                            &::before {
+                                display: inline-block;
+                            }
                         }
                     }
                 }
@@ -343,7 +354,7 @@ body.noscroll {
                     max-height: 500px;
                     padding: 10px 0 20px;
                     overflow: auto;
-                    z-index:1;
+                    z-index: 1;
 
                     @include box;
 
@@ -416,7 +427,7 @@ body.noscroll {
                         }
 
                         @media screen and (max-width: $mobile) {
-                            border-bottom:1px solid #eee;
+                            border-bottom: 1px solid #eee;
                         }
 
                         > a {
@@ -452,8 +463,8 @@ body.noscroll {
                             }
 
                             @media screen and (max-width: $mobile) {
-                                font-size:16px;
-                                line-height:30px;
+                                font-size: 16px;
+                                line-height: 30px;
                             }
                         }
                     }
@@ -528,7 +539,7 @@ body.noscroll {
                 }
 
                 &.lang {
-                    position:relative;
+                    position: relative;
                     margin-right: 0;
 
                     a {
@@ -541,9 +552,9 @@ body.noscroll {
                     }
 
                     select, option {
-                        position:absolute;
-                        top:0;
-                        right:0;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
                         margin: 0;
                         border: none;
                         border-right: none;
@@ -553,10 +564,10 @@ body.noscroll {
                         width: auto;
                         outline: none;
                         height: 40px;
-                        width:100%;
+                        width: 100%;
                         line-height: 40px;
                         background: #fff;
-                        text-align:center;
+                        text-align: center;
                         -webkit-appearance: none;
                         -moz-appearance: none;
                         appearance: none;
@@ -566,6 +577,7 @@ body.noscroll {
 
                         @include box;
                         @include opacity(0);
+
                         &::-ms-expand {
                             /* for IE 11 */
                             display: none;
@@ -576,8 +588,8 @@ body.noscroll {
                         }
                     }
 
-                    option{
-                        padding:10px;
+                    option {
+                        padding: 10px;
                     }
                 }
 
@@ -705,6 +717,137 @@ body.noscroll {
     }
 }
 
+.banner {
+    text-align: center;
+    padding: 110px 0;
+    background: url("../images/initial.png") no-repeat bottom right;
+    background-size: auto 75%;
+    position: relative;
+
+    h2 {
+        font-size: 36px;
+        color: $text;
+        font-weight: bold;
+    }
+
+    .collection {
+        margin-top: 35px;
+    }
+
+    .advancedSearch {
+        margin-top: 15px;
+    }
+
+    h2, .collection, .advancedSearch {
+        position: relative;
+        z-index: 5;
+    }
+
+    canvas {
+        display: block;
+        vertical-align: bottom;
+    }
+
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        left: 0;
+    }
+
+    @media screen and (max-width: $mobile) {
+        background: none;
+
+        h2 {
+            font-size: 24px;
+        }
+
+        padding: 70px 20px;
+    }
+}
+
+.services {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+
+    ul {
+        white-space: nowrap;
+        overflow: auto;
+
+        li {
+            display: inline-block;
+            width: 160px;
+            height: 120px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            border-bottom: 4px solid transparent;
+
+            @include opacity(0.7);
+
+            @include transition(all, 0.3s);
+
+            &:hover {
+                -webkit-filter: grayscale(0%);
+                filter: grayscale(0%);
+                border-bottom: 4px solid $main;
+
+                @include opacity(1);
+
+                @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+
+                a {
+                    padding-top: 20px;
+                }
+            }
+
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                color: $text;
+                font-size: 14px;
+                padding-top: 25px;
+
+                @include box;
+                @include transition(all, 0.3s);
+
+                img {
+                    @include transition(all, 0.3s);
+
+                    width: 38px;
+                    display: block;
+                    margin: 0 auto 20px;
+                }
+            }
+
+            @media screen and (max-width: $mobile) {
+                width: 38.5%;
+                height: 100px;
+                border-bottom: 0px solid transparent;
+
+                &:hover {
+                    border-bottom: 0px solid $main;
+
+                    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0));
+                }
+
+                a {
+                    font-size: 13px;
+
+                    img {
+                        width: 25px;
+                        margin: 0 auto 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .breadcrumbs {
     border-bottom: 1px solid #eee;
     font-size: 12px;
@@ -799,7 +942,7 @@ body.noscroll {
     @media screen and (max-width: $mobile) {
         padding: 0px 15px;
         line-height: 25px;
-        background:#f8f8f8;
+        background: #f8f8f8;
 
         a {
             line-height: 25px;
@@ -810,6 +953,241 @@ body.noscroll {
                 line-height: 40px;
             }
         }
+    }
+}
+
+.featured {
+    background: $gray;
+    padding: 60px $gap;
+
+    @include box;
+
+    .swiper-container {
+        width: 100%;
+        max-width: $maxW;
+        padding: 0 30px 50px;
+
+        @include box;
+    }
+
+    .swiper-wrapper {}
+
+    .swiper-pagination-bullet-active {
+        background: $main;
+    }
+
+    .swiper-button-next {
+        right: 0;
+        background: none;
+        text-align: center;
+
+        &::after {
+            content: "\f054";
+            font-family: 'fontawesome';
+            color: $third;
+            font-size: 20px;
+        }
+    }
+
+    .swiper-button-prev {
+        left: 0;
+        background: none;
+        text-align: center;
+
+        &::after {
+            content: "\f053";
+            font-family: 'fontawesome';
+            color: $third;
+            font-size: 20px;
+        }
+    }
+
+    .swiper-slide {
+        background: #fff;
+        border: 1px solid #eee;
+
+        @include box;
+
+        height: 400px !important;
+        padding-bottom: 20px;
+
+        @media screen and (max-width: $mobile) {
+            height: 350px !important;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: $main;
+            line-height: 1;
+            font-size: 18px;
+            padding: 0 20px;
+            margin-bottom: 20px;
+            display: block;
+            display: -webkit-box;
+            max-height: 18px;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        p {
+            color: $third;
+            line-height: 21px;
+            font-size: 14px;
+            padding: 0 20px;
+            display: block;
+            display: -webkit-box;
+            max-height: 63px;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @include transition(all, 0.3s);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        &:hover {
+            p {
+                color: $text;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobile) {
+        padding: $gap 0;
+    }
+}
+
+.updates{
+    border-top:1px solid #eee;
+    padding:60px 0;
+    @include box;
+
+    .filter{
+        white-space: nowrap;
+        text-align: center;
+        overflow: auto;
+        a{
+            display:inline-block;
+            font-size:16px;
+            line-height: 32px;
+            color:$third;
+            padding:0 20px;
+            text-decoration: none;
+            @include border-radius(16px);
+            @include box;
+            margin:1px;
+
+
+            &:hover{
+                color:$text;
+            }
+
+            &.selected{
+                color:$main;
+                border:1px solid $main;
+            }
+        }
+
+        @media screen and (max-width: $mobile) {
+            a{
+                font-size:14px;
+                padding: 0 10px;
+                line-height: 24px;
+                @include border-radius(12px);
+            }
+        }
+    }
+
+    ul{
+        width:90%;
+        max-width:700px;
+        margin:50px auto;
+
+        li{
+            margin-bottom:15px;
+            a{
+                display:block;
+                font-size:16px;
+                line-height: 25px;
+                color:$text;
+
+                &:hover{
+                    p{
+                        color:$text;
+                    }
+                }
+                
+                
+                span{
+                    float:left;
+                    margin-right:15px;
+                    display:inline-block;
+                    text-decoration: none;
+
+                    &:nth-child(2){
+                        font-size:13px;
+                        color:#fff;
+                        background:$main;
+                        padding:0 10px;
+                    }
+                }
+
+                p{
+                    display: -webkit-box;
+                    max-height: 25px;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    color:$third;
+                }
+            }
+
+            @media screen and (max-width: $mobile) {
+                margin-bottom:30px;
+                a{
+                    line-height: 24px;
+                    color:$third;
+
+                    span{
+                        margin:0;
+                        float:none;
+
+                        &:nth-child(2){
+                            font-size:12px;
+                            float:right;
+                            padding:0 5px;
+                            line-height: 20px;
+                        }
+                    }
+
+                    p{
+                        margin-top:8px;
+                        font-size:14px;
+                        text-decoration: none;
+                        display: block;
+                        max-height: none;
+                        color:$text;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobile) {
+        padding: $gap 0;
     }
 }
 
@@ -828,8 +1206,8 @@ body.noscroll {
         min-height: 50vh;
         max-width: 350px;
         min-width: 220px;
-        position:relative;
-        display:none;
+        position: relative;
+        display: none;
 
         @include box;
 
@@ -901,54 +1279,55 @@ body.noscroll {
         }
 
         @media screen and (max-width: $mobile) {
-            position:fixed;
-            top:0;
-            left:0;
-            width:100vw;
-            height:100vh;
-            z-index:900;
-            max-width:none;
-            padding:0;
-            padding-top:50px;
-            background:#fff;
-            @include transition(transform,.3s);
-            @include translate(-100%,0);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 900;
+            max-width: none;
+            padding: 0;
+            padding-top: 50px;
+            background: #fff;
 
-            &.active{
-                @include translate(0,0);
-                z-index:999;
+            @include transition(transform, 0.3s);
+            @include translate(-100%, 0);
 
-                .close{
-                    top:0;
-                    right:auto;
-                    left:0;
-                    width:50px;
-                    height:50px;
-                    background:none;
-                    @include box-shadow(1px 1px 2px rgba(0,0,0,0));
+            &.active {
+                @include translate(0, 0);
 
-       
+                z-index: 999;
+
+                .close {
+                    top: 0;
+                    right: auto;
+                    left: 0;
+                    width: 50px;
+                    height: 50px;
+                    background: none;
+
+                    @include box-shadow(1px 1px 2px rgba(0, 0, 0, 0));
+
                     &::after {
                         content: "\f00d";
                         color: $main;
                         font-size: 24px;
                     }
-                        
                 }
             }
 
-            .close{
-                position:absolute;
-                top:190px;
-                right:-30px;
-                width:30px;
-                height:50px;
+            .close {
+                position: absolute;
+                top: 190px;
+                right: -30px;
+                width: 30px;
+                height: 50px;
                 text-align: center;
-                background:$main;
-                cursor:pointer;
-                @include border-radius(0 5px 5px 0);
-                @include box-shadow(1px 1px 2px rgba(0,0,0,.3));
+                background: $main;
+                cursor: pointer;
 
+                @include border-radius(0 5px 5px 0);
+                @include box-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
 
                 &::after {
                     font-family: "FontAwesome";
@@ -957,20 +1336,20 @@ body.noscroll {
                     line-height: 50px;
                     font-size: 14px;
                 }
-                    
             }
-            
 
             .title {
                 font-size: 16px;
                 padding: $gap2 $gap;
-                display:none;
+                display: none;
             }
-            .aside_nav{
-                background:#fff;
-                height:100%;
+
+            .aside_nav {
+                background: #fff;
+                height: 100%;
                 overflow: auto;
             }
+
             ul {
                 li {
                     //border-bottom:1px solid #eee;
@@ -978,7 +1357,7 @@ body.noscroll {
                         text-decoration: underline;
 
                         &::before {
-                            display:none;
+                            display: none;
                         }
 
                         &:hover, &:focus {
@@ -1010,16 +1389,16 @@ body.noscroll {
             padding: $gap2;
         }
 
-        >div{
+        > div {
             width: 100%;
             max-width: $maxW;
             margin: 0 auto;
+
             @include box;
         }
 
         .top {
             padding: $gap;
-
             border-bottom: 1px solid #eee;
 
             h3 {
@@ -1042,11 +1421,11 @@ body.noscroll {
                     border: 1px solid $main;
 
                     @include border-radius(5px);
-                    @include transition(all,.3s);
+                    @include transition(all, 0.3s);
 
-                    &:hover, &:focus{
-                        background:$main;
-                        color:#fff;
+                    &:hover, &:focus {
+                        background: $main;
+                        color: #fff;
                     }
 
                     &.spec {
@@ -1061,56 +1440,58 @@ body.noscroll {
 
             @media screen and (max-width: $mobile) {
                 padding: $gap2 0;
-                h3{
-                    font-size:22px;
-                    display:block;
-                    margin-bottom:10px;
+
+                h3 {
+                    font-size: 22px;
+                    display: block;
+                    margin-bottom: 10px;
                 }
 
                 span {
                     //float:none;
+               
                 }
 
-                &::after{
+                &::after {
                     @include clear;
                 }
             }
         }
 
-        .tab{
+        .tab {
             //margin-top:2px;
             //position:relative;
             //top:100px;
             border-top: 3px solid #eee;
             border-bottom: 1px solid #ddd;
-            display:flex;
+            display: flex;
             background: #fff;
-            z-index:10;
+            z-index: 10;
+
             //@include box-shadow(0 2px 4px rgba(0,0,0,.1));
 
-            >div{
-                width:100%;
-                font-size:18px;
+            > div {
+                width: 100%;
+                font-size: 18px;
                 line-height: 1.5;
-                color:$third;
+                color: $third;
                 text-align: center;
                 letter-spacing: 0.1em;
-                padding:16px 0;
-                cursor:pointer;
+                padding: 16px 0;
+                cursor: pointer;
+
                 @include box;
 
-                &:hover, &:focus{
-                    color:$text;
+                &:hover, &:focus {
+                    color: $text;
                 }
 
-
-
-                &.selected{
-                    color:$main;
+                &.selected {
+                    color: $main;
                     border-bottom: 4px solid $main;
 
                     &::before {
-                        font-size:12px;
+                        font-size: 12px;
                         content: "\f13a";
                         font-family: 'fontawesome';
                         margin-right: 8px;
@@ -1119,27 +1500,27 @@ body.noscroll {
             }
 
             @media screen and (max-width: $mobile) {
-
-                >div{
-                    padding:10px 0;
-                    font-size:14px;
+                > div {
+                    padding: 10px 0;
+                    font-size: 14px;
                     letter-spacing: 0;
 
                     &::before {
-                        display:none;
+                        display: none;
                     }
                 }
             }
         }
 
-        .tab_content{
-            >div{
-                position:relative;
-                display:none;
+        .tab_content {
+            > div {
+                position: relative;
+                display: none;
+
                 @include opacity(0);
 
-                &.selected{
-                    display:block;
+                &.selected {
+                    display: block;
                     animation-name: fadeUpIn;
                     animation-iteration-count: 1;
                     animation-fill-mode: forwards;
@@ -1149,30 +1530,32 @@ body.noscroll {
 
             @keyframes fadeUpIn {
                 0% {
-                    top:30px;
+                    top: 30px;
 
                     @include opacity(0);
                 }
 
                 100% {
-                    top:0;
+                    top: 0;
 
                     @include opacity(1);
                 }
             }
         }
 
-        .gallery{
-            padding:$gap;
+        .gallery {
+            padding: $gap;
+
             @include box;
-            width:100%;
+
+            width: 100%;
+
             //background:#eee;
-            margin-bottom:50px;
-            
-            position:relative;
+            margin-bottom: 50px;
+            position: relative;
 
             @media screen and (max-width: $mobile) {
-                padding:$gap2 0;
+                padding: $gap2 0;
             }
 
             .slides {
@@ -1180,15 +1563,15 @@ body.noscroll {
                 top: 0;
                 left: 0;
                 width: 100%;
-                height:400px;
+                height: 400px;
                 overflow: hidden;
-                z-index: 2;      
+                z-index: 2;
 
                 @media screen and (max-width: $mobile) {
                     width: 100%;
                     height: 0;
                     padding-top: 56.25%;
-                }          
+                }
 
                 &.square {
                     width: 100%;
@@ -1223,8 +1606,9 @@ body.noscroll {
 
             .slides_btns {
                 text-align: center;
-                margin-top:15px;
-                >* {
+                margin-top: 15px;
+
+                > * {
                     display: inline-block;
                     width: 12px;
                     height: 12px;
@@ -1237,7 +1621,7 @@ body.noscroll {
                     @include border-radius(100%);
 
                     background: $third;
-                    margin:5px;
+                    margin: 5px;
 
                     &:hover, &:focus {
                         @include opacity(1);
@@ -1250,69 +1634,74 @@ body.noscroll {
                     }
                 }
             }
-
- 
         }
 
-        .article{
-            padding:$gap;
+        .article {
+            padding: $gap;
+
             @include box;
-            margin-bottom:50px;
-            section{
-                margin-bottom:20px;
+
+            margin-bottom: 50px;
+
+            section {
+                margin-bottom: 20px;
             }
 
-            p{
-                font-size:16px;
+            p {
+                font-size: 16px;
                 line-height: 1.5;
             }
 
             @media screen and (max-width: $mobile) {
-                padding:$gap2 0;
+                padding: $gap2 0;
             }
-
         }
 
-        .purchase{
-            padding:$gap;
+        .purchase {
+            padding: $gap;
+
             @include box;
-            margin-bottom:50px;
+
+            margin-bottom: 50px;
 
             @media screen and (max-width: $mobile) {
-                padding:$gap2 0;
+                padding: $gap2 0;
             }
-  
-            h3{
-                font-size:24px;
+
+            h3 {
+                font-size: 24px;
                 line-height: 1.5;
-                color:$main;
-                margin-bottom:30px;
+                color: $main;
+                margin-bottom: 30px;
             }
-            ul{
-                li{
-                    display:block;
-                    margin-bottom:8px;
-                    
-                    a{
-                        display:inline-block;
-                        font-size:16px;
-                        line-height:25px;
-                        color:$third;
-                        padding:10px 20px;
-                        border:1px solid #eee;
+
+            ul {
+                li {
+                    display: block;
+                    margin-bottom: 8px;
+
+                    a {
+                        display: inline-block;
+                        font-size: 16px;
+                        line-height: 25px;
+                        color: $third;
+                        padding: 10px 20px;
+                        border: 1px solid #eee;
+
                         @include box;
-                        @include transition(all,.3s);
+                        @include transition(all, 0.3s);
                         @include border-radius(5px);
-                        text-decoration:none;
 
-                        &:hover, &:focus{
-                            border-color:$third;
-                            color:$text;
+                        text-decoration: none;
+
+                        &:hover, &:focus {
+                            border-color: $third;
+                            color: $text;
                         }
 
                         &::after {
-                            font-size:12px;
-                            color:$main;
+                            font-size: 12px;
+                            color: $main;
                             content: "\f178";
                             font-family: 'fontawesome';
                             margin-left: 10px;
@@ -1322,57 +1711,58 @@ body.noscroll {
             }
         }
 
-        .tables{
-            padding:$gap;
+        .tables {
+            padding: $gap;
+
             @media screen and (max-width: $mobile) {
-                padding:$gap2 0;
+                padding: $gap2 0;
             }
-            .table{
-                margin-bottom:$gap;
+
+            .table {
+                margin-bottom: $gap;
             }
         }
 
-        .spec_container{
-            border-top:1px solid #ddd;
-            padding:$gap;
-            position:relative;
+        .spec_container {
+            border-top: 1px solid #ddd;
+            padding: $gap;
+            position: relative;
 
-            .section_title{
-                position:absolute;
-                font-size:18px;
-                color:$third;
+            .section_title {
+                position: absolute;
+                font-size: 18px;
+                color: $third;
                 line-height: 30px;
                 letter-spacing: 0.1em;
-                background:#fff;
-                width:auto;
-                top:-15px;
-                left:50%;
-                z-index:1;
-                padding:0 15px;
-                @include translate(-50%,0);
+                background: #fff;
+                width: auto;
+                top: -15px;
+                left: 50%;
+                z-index: 1;
+                padding: 0 15px;
+
+                @include translate(-50%, 0);
             }
 
             @media screen and (max-width: $mobile) {
                 padding: $gap2 0;
             }
         }
-
     }
 }
 
-.table{
-
-    h3{
-        font-size:14px;
+.table {
+    h3 {
+        font-size: 14px;
         line-height: 1.5;
-        color:$text;
+        color: $text;
         letter-spacing: 0.05em;
-        margin-bottom:25px;
-        border-left:3px solid $third;
-        padding-left:10px;
+        margin-bottom: 25px;
+        border-left: 3px solid $third;
+        padding-left: 10px;
+
         @include box;
 
-   
         a {
             float: right;
             display: inline-block;
@@ -1384,11 +1774,11 @@ body.noscroll {
             border: 1px solid #008000;
 
             @include border-radius(5px);
-            @include transition(all,.3s);
+            @include transition(all, 0.3s);
 
-            &:hover, &:focus{
-                background:#008000;
-                color:#fff;
+            &:hover, &:focus {
+                background: #008000;
+                color: #fff;
             }
 
             &.export {
@@ -1399,128 +1789,144 @@ body.noscroll {
                 }
             }
         }
-        
     }
 
-    .table_container{
+    .table_container {
         //max-width:50%;
         //overflow: auto;
-        overflow:auto;
-        border:1px solid #ccc;              
+        overflow: auto;
+        border: 1px solid #ccc;
+
         @include box;
+
         @media screen and (max-width: $mobile) {
-            border:none;
+            border: none;
         }
     }
+
     .css_table {
-        display:table;
-        font-size:14px;
-        width:100%;
+        display: table;
+        font-size: 14px;
+        width: 100%;
+
         @include box;
     }
+
     .css_tr {
         display: table-row;
+
         @include box;
 
-        &:hover, &:focus{
-            background:$gray;
+        &:hover, &:focus {
+            background: $gray;
         }
 
-        &:first-child{
-            background:$main;
+        &:first-child {
+            background: $main;
             background-image: linear-gradient($main, $second);
 
             .css_td {
-                color:#fff;
-                border-top:0px solid #ddd;
-                border-right:1px solid #ae210e;
+                color: #fff;
+                border-top: 0px solid #ddd;
+                border-right: 1px solid #ae210e;
             }
         }
 
         @media screen and (max-width: $mobile) {
             display: block;
-            border:1px solid #ccc;
+            border: 1px solid #ccc;
 
             //border-top:4px solid $main;
-            margin-bottom:5px;
-            &:first-child{
-                display:none;
+            margin-bottom: 5px;
+
+            &:first-child {
+                display: none;
             }
         }
     }
+
     .css_td {
-        color:$text;
+        color: $text;
         display: table-cell;
-        padding:10px;
-        border-top:1px solid #ddd;
-        border-right:1px solid #ddd;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+
         @include box;
 
-        a{
-            color:$third;
+        a {
+            color: $third;
 
-            &:hover, &:focus{
-                color:$main;
+            &:hover, &:focus {
+                color: $main;
             }
         }
 
-        span{
-            &:first-child{
-                display:none;
+        span {
+            &:first-child {
+                display: none;
             }
         }
 
         @media screen and (max-width: $mobile) {
-            padding:0px;
+            padding: 0px;
             display: block;
-            position:relative;
-            border-top:1px solid #ddd;
-            border-right:0px solid #ddd;
+            position: relative;
+            border-top: 1px solid #ddd;
+            border-right: 0px solid #ddd;
 
             @include box;
-            display:flex;
-            align-items:stretch;
-            span{
-                min-height:35px;
-                width:100%;
-                padding:5px 10px;
-                &:first-child{
-                    display:block;
-                    width:40%;
-                    background:$main;
-                    background-image: linear-gradient(to right,$main, $second);
-                    color:#fff;
-                    
+
+            display: flex;
+            align-items: stretch;
+
+            span {
+                min-height: 35px;
+                width: 100%;
+                padding: 5px 10px;
+
+                &:first-child {
+                    display: block;
+                    width: 40%;
+                    background: $main;
+                    background-image: linear-gradient(to right, $main, $second);
+                    color: #fff;
                 }
             }
         }
     }
 }
 
-.collection{
-    display:inline-block;
-    width:auto;
-    font-size:16px;
-    color:#fff;
+.collection {
+    display: inline-block;
+    width: auto;
+    font-size: 16px;
+    color: #fff;
     line-height: 24px;
-    text-align:center;
-    background:$main;
-    padding:13px 20px;
+    text-align: center;
+    background: $main;
+    padding: 13px 20px;
     letter-spacing: 0.1em;
     text-decoration: none;
     vertical-align: middle;
+
     @include border-radius(8px);
     @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
 
-    &::before{
-        margin-right:10px;
+    &::before {
+        margin-right: 10px;
         vertical-align: middle;
-        content:"";
-        display:inline-block;
-        width:30px;
-        height:24px;
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 24px;
         background: url("../images/collection.png") no-repeat center center;
         background-size: 100% 100%;
+    }
+
+    @media screen and (max-width: $mobile) {
+        font-size: 14px;
+        padding: 8px 15px;
     }
 }
 
@@ -1563,7 +1969,7 @@ body.noscroll {
     margin: 0 auto;
     height: 50px;
     width: 90%;
-    max-width: 450px;
+    max-width: 400px;
 
     @include border-radius(8px);
     @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
@@ -1578,6 +1984,7 @@ body.noscroll {
         color: $text;
         letter-spacing: 0.05em;
         height: 50px;
+        line-height: 50px;
         width: 100%;
         display: block;
         background: #fff;
@@ -1607,7 +2014,7 @@ body.noscroll {
         //-moz-appearance: none;
         //appearance: none;
         cursor: pointer;
-        padding: 0 15px 0 15px;
+        padding: 0 15px;
         font-size: 15px;
         position: relative;
 
@@ -1652,6 +2059,37 @@ body.noscroll {
         content: "\f002";
         font-family: 'fontawesome';
     }
+
+    @media screen and (max-width: $mobile) {
+        height: 40px;
+        max-width: 320px;
+
+        input[type=text] {
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+        }
+
+        select, option {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 5px;
+            font-size: 14px;
+        }
+
+        input[type=submit] {
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
+        }
+
+        &::after {
+            font-size: 16px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+    }
 }
 
 .footer {
@@ -1678,7 +2116,7 @@ body.noscroll {
         position: absolute;
         width: 50px;
         height: 50px;
-        font-size: 50px;
+        font-size: 30px;
         line-height: 50px;
         top: 50%;
         left: 50%;
@@ -1783,11 +2221,11 @@ body.noscroll {
         @media screen and (max-width: $mobile) {
             float: none;
             text-align: center;
-            margin-top:20px;
+            margin-top: 20px;
 
-            a{
-                width:180px;
-                height:21px;
+            a {
+                width: 180px;
+                height: 21px;
             }
         }
     }
@@ -1896,6 +2334,10 @@ body.noscroll {
             float: none;
             display: block;
             text-align: center;
+
+            input[type=text] {
+                width: 165px;
+            }
         }
     }
 

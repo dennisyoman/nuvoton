@@ -6,15 +6,24 @@ $(document).ready(
         $("#mmb").click(function() {
             $(this).toggleClass("active");
             $("#nav").toggleClass("active");
+            $("#header .logo").toggleClass("disabled");
+            //$("#header .logo").toggle();
         })
 
         //nav
         $(".main_nav > li").hover(
             function() {
-                $("#wrapper").addClass("overlay");
-                $("body").addClass("noscroll");
+                $(this).delay(200).queue(function(){
+                    $(this).addClass("trig");
+                    $("#wrapper").addClass("overlay");
+                    $("body").addClass("noscroll");
+                    $(this).dequeue();
+                });
+                
             },
             function() {
+                $(this).clearQueue(); 
+                $(this).removeClass("trig");
                 $("#wrapper").removeClass("overlay");
                 $("body").removeClass("noscroll");
             }
@@ -40,7 +49,7 @@ $(document).ready(
                 },
                 function() {
 
-                    $(this).children("ul").delay(100).queue(function(){
+                    $(this).children("ul").delay(200).queue(function(){
                         $(this).hide();
                         $(this).parent().parent().removeClass("lock");
                         $(this).dequeue();
@@ -173,6 +182,153 @@ $(document).ready(
                 }, 0);
             });
         };
+
+        //initialize swiper when document ready
+        if ($("#featured").length > 0) {
+            var mySwiper = new Swiper('.swiper-container', {
+                // Optional parameters
+                //direction: 'vertical',
+                //loop: true,
+                autoHeight:true,
+                slidesPerView: 3,
+                spaceBetween: 30,
+                slidesPerGroup:3,
+                //centeredSlides: true,
+                breakpoints: {
+                    // when window width is <= 320px
+                    350: {
+                      slidesPerView: 1,
+                      slidesPerGroup:1,
+                    },
+                    // when window width is <= 480px
+                    650: {
+                      slidesPerView: 2,
+                      slidesPerGroup:2,
+                    },
+                },
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable:true,
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+        }
+
+        // ParticlesJS Config.
+        if ($("#particles-js").length > 0) {
+            particlesJS("particles-js", {
+              "particles": {
+                "number": {
+                  "value": 80,
+                  "density": {
+                    "enable": true,
+                    "value_area": 700
+                  }
+                },
+                "color": {
+                  "value": "#ddd"
+                },
+                "shape": {
+                  "type": "circle",
+                  "stroke": {
+                    "width": 0,
+                    "color": "#ddd"
+                  },
+                  "polygon": {
+                    "nb_sides": 5
+                  },
+                },
+                "opacity": {
+                  "value": 0.5,
+                  "random": false,
+                  "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                  }
+                },
+                "size": {
+                  "value": 3,
+                  "random": true,
+                  "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                  }
+                },
+                "line_linked": {
+                  "enable": true,
+                  "distance": 150,
+                  "color": "#ddd",
+                  "opacity": 0.5,
+                  "width": 1
+                },
+                "move": {
+                  "enable": true,
+                  "speed": 4,
+                  "direction": "none",
+                  "random": false,
+                  "straight": false,
+                  "out_mode": "out",
+                  "bounce": false,
+                  "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                  }
+                }
+              },
+              "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                  "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                  },
+                  "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                  },
+                  "resize": true
+                },
+                "modes": {
+                  "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                      "opacity": 1
+                    }
+                  },
+                  "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                  },
+                  "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                  },
+                  "push": {
+                    "particles_nb": 4
+                  },
+                  "remove": {
+                    "particles_nb": 2
+                  }
+                }
+              },
+              "retina_detect": true
+            });
+        }
 
     }
 );
