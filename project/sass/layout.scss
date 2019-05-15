@@ -1936,6 +1936,7 @@ body.noscroll {
     background: url("../images/bg_footer_search.jpg") no-repeat center center;
     background-size: cover;
     text-align: center;
+    background-attachment: fixed;
 
     @include box;
 

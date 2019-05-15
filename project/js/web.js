@@ -156,13 +156,12 @@ $(document).ready(
             resizeScreen();
         });
 
-        resizeScreen();
-        scrollFn();
 
-        if (navigator.userAgent.match(/Trident\/7\./)) { // if IE
-            $('body').on("mousewheel", function() {
+        //fixed jump bg
+        if(navigator.userAgent.match(/Trident\/7\./)) { // if IE
+            $('body').on("mousewheel", function () {
                 // remove default behavior
-                event.preventDefault();
+                event.preventDefault(); 
 
                 //scroll without smoothing
                 var wheelDelta = event.wheelDelta;
@@ -330,10 +329,18 @@ $(document).ready(
             });
         }
 
+        resizeScreen();
+        scrollFn();
+
     }
 );
 
-
+function is_iPhone_or_iPad(){
+    return (
+        (navigator.platform.indexOf("iPhone") != -1) ||
+        (navigator.platform.indexOf("iPod") != -1)
+    );
+}
 
 function scrollFn() {
 
@@ -342,7 +349,6 @@ function scrollFn() {
     
 
 //
-
 
 function resizeScreen() {
     $(".sticker").sticky('update');
@@ -497,92 +503,7 @@ function bgImg(){
     });
 }
 
-//submit
 
-var isEmail = function(email) {
-    if (email == "") return true;
-    reEmail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/
-    return reEmail.test(email);
-}
-
-var validateQuery = function() {
-
-    var $mistake = 0;
-    var $fromtop = 100;
-    var $boddy = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-    $("#query .alert").text('');
-    $('#query .label').removeClass("error");
-
-    if (!$('#date1').val()) {
-        $('#date1').parent().addClass("error");
-        if ($mistake == 0) {
-            $("#query .alert").text('至少需要一個預約時間');
-            $boddy.animate({ scrollTop: $('#date1').offset().top - $fromtop }, 600);
-            $('#date1').focus();
-        }
-        $mistake += 1;
-    }
-
-    if (!$('#query input[name="name"]').val()) {
-        $('#query input[name="name"]').parent().addClass("error");
-        if ($mistake == 0) {
-            $("#query .alert").text('請輸入聯絡人名稱');
-            $boddy.animate({ scrollTop: $('#query input[name="name"]').eq(0).offset().top - $fromtop }, 600);
-            $('#query input[name="name"]').focus();
-        }
-        $mistake += 1;
-    }
-
-    if (!$('#query input[name="phone"]').val()) {
-        $('#query input[name="phone"]').parent().addClass("error");
-        if ($mistake == 0) {
-            $("#query .alert").text('請輸入連絡電話');
-            $boddy.animate({ scrollTop: $('#query input[name="phone"]').eq(0).offset().top - $fromtop }, 600);
-            $('#query input[name="phone"]').focus();
-        }
-        $mistake += 1;
-    }
-
-    if (!$('#query input[name="email"]').text()) {
-        $('#query input[name="email"]').parent().addClass("error");
-        if ($mistake == 0) {
-            $("#query .alert").text('請輸入電子郵件');
-            $boddy.animate({ scrollTop: $('#query input[name="email"]').eq(0).offset().top - $fromtop }, 600);
-            $('#query input[name="email"]').focus();
-        }
-        $mistake += 1;
-    }
-
-    if (!isEmail($('#query input[name="email"]').val())) {
-        $('#query input[name="email"]').parent().addClass("error");
-        if ($mistake == 0) {
-            $("#query .alert").text('電子郵件格式錯誤');
-            $boddy.animate({ scrollTop: $('#query input[name="email"]').eq(0).offset().top - $fromtop }, 600);
-            $('#query input[name="email"]').focus();
-        }
-        $mistake += 1;
-    }
-
-    if (!$('#query input[name="deliver"]').val()) {
-        $('#query input[name="deliver"]').parent().addClass("error");
-        if ($mistake == 0) {
-            $("#query .alert").text('請輸入聯絡人名稱');
-            $boddy.animate({ scrollTop: $('#query input[name="deliver"]').eq(0).offset().top - $fromtop }, 600);
-            $('#query input[name="deliver"]').focus();
-        }
-        $mistake += 1;
-    }
-
-
-
-    if ($mistake > 0) {
-        //return alert('請確認填寫資料格式正確');
-    } else {
-        //$("#query .submit").hide();
-        //$("#register .spining").show();
-        //window.location = 'finish.html';
-    }
-}
 
 window.onload = function(){
     bgImg();
