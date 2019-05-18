@@ -8,6 +8,10 @@ html, body, select, option, .modal, input {
     background: #000;
 }
 
+body {
+    font-size: 1.6rem;
+}
+
 body.noscroll {
     width: 100%;
     height: 100%;
@@ -112,7 +116,7 @@ body.noscroll {
         width: 100%;
         background: $main;
         height: 40px;
-        padding: 0 $gap 0 0;
+        padding: 0;
 
         @include box;
 
@@ -142,7 +146,7 @@ body.noscroll {
             text-align: center;
             background: $main;
 
-            @include border-radius(8px 0 0 8px);
+            //@include border-radius(8px 0 0 8px);
 
             letter-spacing: 0.1em;
             text-decoration: none;
@@ -154,61 +158,47 @@ body.noscroll {
             }
 
             @media screen and (max-width: $mobile) {
-                position: fixed;
-                top: 50px;
-                width: auto;
-                right: auto;
-                left: 0;
-                z-index: 2;
-                font-size: 14px;
-                line-height: 16px;
-                padding: 12px 20px;
-
-                @include border-radius(0);
-                @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0));
-
-                border-right: 1px solid rgba(255, 255, 255, 0.3);
-
-                &::before {
-                    display: none;
-                }
+                display: none;
             }
         }
 
         @media screen and (max-width: $mobile) {
-            position: absolute;
-            top: 90px;
-            left: 0;
-            z-index: 1;
-
-            //min-height: calc(100vh - 90px);
-            //padding: $gap2 $gap2 50px;
-            background: #ae210e;
-            height: 0px;
-            padding: 0 $gap2 0;
-            overflow: hidden;
+            padding: 0;
 
             &.active {
-                height: calc(100vh - 90px);
-                padding: $gap2 $gap2 50px;
-                overflow: auto;
+                .sub_nav {
+                    display: block;
+                }
             }
         }
 
         .main_nav {
             display: block;
 
-            > li {
+            .cd-dropdown-wrapper {
                 position: relative;
-                display: inline;
+                display: inline-block;
 
-                @include transition(all, 0.3s);
-
-                &:last-child {
-                    margin-right: 0;
+                a:link {
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
 
-                > a {
+                .is-hidden {
+                    @media screen and (max-width: $mobile) {
+                        display:none !important;
+                    }
+               
+                }
+
+                &.active {
+                    .cd-dropdown {
+                        display: block;
+                    }
+                }
+
+                .cd-dropdown-trigger {
                     font-size: 17px;
                     color: #fff;
                     line-height: 40px;
@@ -216,260 +206,311 @@ body.noscroll {
                     text-decoration: none;
                     letter-spacing: 0.1em;
                     cursor: pointer;
-                    padding: 0 2%;
-
-                    &::after {
-                        content: "\f0d7";
-                        font-family: 'fontawesome';
-                        color: rgba(255, 255, 255, 0.5);
-                        margin-left: 8px;
-                    }
-                }
-
-                &.trig {
-                    @media screen and (min-width: $mobile) {
-                        > a {
-                            background: #eee;
-                            color: $main;
-
-                            &::after {
-                                color: $second;
-                            }
-                        }
-                    }
-
-                    > ul {
-                        display: block;
-                    }
-                }
-
-                @media screen and (max-width: $mobile) {
-                    display: block;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-                    a {
-                        padding: 0;
-                        display: block;
-
-                        &::after {
-                            content: "\f101";
-                            float: right;
-                            margin-left: 0px;
-                            color: #fff;
-                        }
-                    }
-                }
-
-                .mn {
-                    background: #eee;
-                    border-left: 1px solid #ddd;
-                    display: none;
+                    padding: 0 30px;
 
                     @media screen and (max-width: $mobile) {
-                        background: #fff;
-                    }
-
-                    li.back {
-                        font-size: 14px;
-                        color: $text;
-                        line-height: 40px;
-                        display: block;
-                        text-decoration: none;
-                        padding: 5px 60px 5px 40px;
-
-                        @include box;
-
-                        width: 100%;
-                        line-height: 35px;
-                        border-bottom: 4px solid rgba(0, 0, 0, 0.06);
-                        margin-bottom: 10px;
-
-                        a {
-                            display: inline;
-                        }
-
-                        &::before {
-                            content: "\f0d7";
-                            color: $second;
-                            font-family: 'fontawesome';
-                            margin-right: 8px;
-                        }
-
-                        @media screen and (max-width: $mobile) {
-                            font-size: 18px;
-                            position: fixed;
-                            top: 0;
-                            left: 40px;
-                            background: #eee;
-                            width: calc(100vw - 40px);
-                            padding-left: 0;
-
-                            &::before {
-                                content: "\f060";
-                                display: none;
-                                text-align: center;
-                                width: 40px;
-                                margin: 0;
-                                color: $third;
-                            }
-                        }
-                    }
-
-                    &.lock {
-                        @media screen and (max-width: $mobile) {
-                            > li.back {
-                                width: 100vw;
-                                left: 0;
-                                padding-left: 0;
-
-                                &::before {
-                                    display: inline-block;
-                                }
-                            }
-                        }
-                    }
-
-                    > li.back {
-                        @media screen and (max-width: $mobile) {
-                            left: 0;
-                            padding-left: 0px;
-                            width: 100vw;
-                            pointer-events: none;
-
-                            &::before {
-                                display: inline-block;
-                            }
-                        }
+                        white-space: nowrap;
+                        font-size: 15px;
+                        padding: 0 10px;
+                        text-align: center;
+                        border-right: 1px solid rgba(255, 255, 255, 0.3);
                     }
                 }
 
-                ul {
-                    width: 25%;
-                    background: #fff;
+                .cd-dropdown {
                     display: none;
                     position: fixed;
-                    left: 0px;
                     top: 100px;
-                    height: calc(100vh - 100px);
-                    max-height: 500px;
-                    padding: 10px 0 20px;
+                    left: 0;
+                    background: #f8f8f8;
+                    width: $navW;
                     overflow: auto;
-                    z-index: 1;
+                    height: calc(100vh - 100px);
 
-                    @include box;
-
-                    //@include opacity(0);
-                    //animation-name: fadeIn;
-                    //animation-iteration-count: 1;
-                    //animation-fill-mode: forwards;
-                    //animation-duration: 0s;
-                    border-left: 1px solid #eee;
-
-                    @include box-shadow(4px 5px 8px rgba(0, 0, 0, 0.1));
 
                     @media screen and (max-width: $mobile) {
                         top: 50px;
-                        left: 0px !important;
                         height: calc(100vh - 50px);
-                        width: 100vw;
-                        max-height: none;
-                        z-index: 999;
-
-                        @include opacity(0);
-
-                        animation-name: fadeIn;
-                        animation-iteration-count: 1;
-                        animation-fill-mode: forwards;
-                        animation-duration: 0.3s;
+                        width:100%;
+                        overflow: auto;
+                        z-index:999;
                     }
 
-                    &.lock {
+                    &::after {
+                        content: "";
+                        position: fixed;
+                        top: 100px;
+                        left: $navW;
+                        background: #ffffff;
+                        width: $navW * 2;
+                        height: calc(100vh - 100px);
+                        border-left: 1px solid #ddd;
+                        overflow: auto;
+                        z-index: 1;
                         @media screen and (max-width: $mobile) {
-                            > .back {
-                                width: 100vw;
-                                left: 0;
-
-                                &::before {
-                                    display: inline-block;
-                                }
-                            }
+                            display:none;
                         }
                     }
 
-                    li {
+                    a, h2 {
                         display: block;
-                        position: relative;
+                        font-size: 15px;
+                        line-height: 20px;
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        color: $text;
 
-                        &.tree {
+                        @include box;
+                    }
+
+                    li{
+                        @media screen and (max-width: $mobile) {
+                            font-size: 15px;
+                            line-height: 40px;
+                        }
+                    }
+
+                    h2 {
+                        font-size:18px;
+                        display: none;
+                        @media screen and (max-width: $mobile) {
+                            display:block;
+                            text-align: center;
+                            line-height: 30px;
+                            background:$main;
+                            color:#fff;
+                            position:fixed;
+                            top:0;
+                            left:0;
+                            width:100%;
+                        }
+                    }
+
+                    .cd-close {
+                        display: none;
+                        @media screen and (max-width: $mobile) {
+                            display:block;
+                            position: fixed;
+                            z-index: 1;
+                            right: 0;
+                            top: 0;
+                            height: 50px;
+                            width: 50px;
+                            line-height: 50px;
+                            padding:0;
+                            text-align: center;
+
                             &::after {
-                                position: absolute;
-                                top: 5px;
-                                right: 20px;
-                                content: "\f105";
-                                color: #ccc;
-                                font-family: 'fontawesome';
+                                font-size:20px;
+                                content: "\f00d";
+                                font-family: "fontawesome";
+                                color: #fff;
+                            }
+                        }
+                    }
 
-                                @media screen and (max-width: $mobile) {
-                                    top: 8px;
-                                    content: "\f101";
-                                    color: $second;
-                                    font-size: 18px;
+                    .cd-dropdown-content {
+                        position: relative;
+                        z-index: 3;
+
+                        ul{
+                            @media screen and (max-width: $mobile) {
+                                display:none;
+                            }
+                        }
+
+                        //level 2
+                        > li {
+                            > a {
+                                border-bottom: 1px solid #eee;
+
+                                &::after {
+                                    content: "\f105";
+                                    font-family: "fontawesome";
+                                    float: right;
+                                    color: #b3b3b3;
                                 }
                             }
 
-                            &:hover, &:focus {
-                                @media screen and (min-width: $mobile) {
-                                    &::after {
-                                        color: $second;
-                                    }
+                            &.active {
+                                background: #fff;
+                                width: calc(100% + 1px);
+                                padding-right: 1px;
+
+                                > ul {
+                                    display: block;
+                                    
                                 }
                             }
                         }
+                    }
+                    
+                    //level 3
+                    .cd-secondary-dropdown {
+                        position: fixed;
+                        top: 100px;
+                        left: $navW;
+                        width: $navW * 2;
+                        height: calc(100vh - 100px);
+                        overflow: auto;
+                        z-index: 2;
+                        display: none;
+                        background:#fff;
 
                         @media screen and (max-width: $mobile) {
-                            border-bottom: 1px solid #eee;
+                            top:50px;
+                            left:0;
+                            width:100%;
+                            height: calc(100vh - 50px);
+
                         }
 
-                        > a {
-                            font-size: 14px;
-                            color: $text;
-                            line-height: 20px;
-                            display: inline-block;
-                            text-decoration: none;
-                            padding: 5px 15px 5px 40px;
+                        .go-back {
+                            display: none;
+                            float: none;
+                            background:$main;
+                            pointer-events:none;
+                            a {
+                                &::before {
+                                    content: "\f104";
+                                    font-family: "fontawesome";
+                                    margin-right: 10px;
+                                }
 
-                            @include box;
-
-                            &.link {
-                                color: $third;
-
-                                //width:auto !important;
-                                text-decoration: underline;
-
-                                //display:inline-block !important;
-                                //padding-right: 0px;
-                                //background:$gray;
-                                @media screen and (min-width: $mobile) {
-                                    //width: calc(100% - 40px);
-                                    text-decoration: none;
-
-                                    //display:block;
-                                    //padding-right: 60px;
-                                    &:hover, &:focus {
-                                        color: $main;
-                                        text-decoration: underline;
-                                    }
+                                &::after {
+                                    display: none;
                                 }
                             }
 
                             @media screen and (max-width: $mobile) {
-                                font-size: 16px;
-                                line-height: 30px;
+                                display:block;
+                                position:fixed;
+                                top:0;
+                                left:0;
+                                pointer-events: none;
+                                z-index:999;
+                                width:calc(100% - 50px);
+                                a{
+                                    line-height: 30px;
+                                    color:#fff;
+                                }
                             }
+                        }
+
+                        .see-all {
+                            width: 100%;
+                            float: none;
+
+                            a {
+                                padding: 20px;
+                                color: $main;
+                                border-bottom: 1px solid #eee;
+
+                                &::after {
+                                    content: "\f138";
+                                    font-family: "fontawesome";
+                                    margin-left: 10px;
+                                }
+
+                                @media screen and (max-width: $mobile) {
+                                    padding:20px 20px;
+                                }
+                            }
+                        }
+
+                        > li.has-children {
+                            width: 50%;
+                            float: left;
+                            @media screen and (max-width: $mobile) {
+                                width:100%;
+                                float:none;
+                                border-bottom: 1px solid #eee;
+                                &::after {
+                                    content: "\f105";
+                                    font-family: "fontawesome";
+                                    float: right;
+                                    color: #b3b3b3;
+                                    margin:0 10px;
+                                }
+
+                                &.active{
+                                    > ul{
+                                        display:block;
+                                    }
+                                }
+                            }
+
+                            > a {
+                                display: none;
+                                @media screen and (max-width: $mobile) {
+                                    display:inline-block;
+                                    width:auto;
+                                }
+                            }
+
+                            > ul {
+                                .go-back {
+                                    pointer-events:auto;
+                                }
+                                .see-all {
+                                    a {
+                                        padding: 10px 20px;
+                                        margin-left: 0;
+                                        border-width:0;
+                                        display:block;
+                                        &::after {
+                                            display:none;
+                                        }
+                                        @media screen and (max-width: $mobile) {
+                                            padding: 20px;
+                                            border-width:1px;
+                                            &::after {
+                                                display:inline;
+                                            }
+                                        }
+                                    }
+
+                                }
+
+                                li{
+
+                                    a {
+                                        padding: 0 20px;
+                                        margin-left: 10px;
+                                        @media screen and (max-width: $mobile) {
+                                            padding: 10px 20px;
+                                            margin-left: 0;
+                                        }
+                                    }
+                                    @media screen and (max-width: $mobile) {
+                                        border-bottom: 1px solid #eee;
+                                        
+                                    }
+                                }
+
+                                margin-bottom: 30px;
+
+                                @media screen and (max-width: $mobile) {
+                                    position:fixed;
+                                    top:50px;
+                                    left:0;
+                                    width:100%;
+                                    height: calc(100vh - 50px);
+                                    overflow: auto;
+                                    background:#fff;
+                                    margin-bottom: 0px;
+                                }
+                            }
+                        }
+
+                        &::after {
+                            @include clear;
                         }
                     }
                 }
             }
+
+            @media screen and (max-width: $mobile) {}
         }
 
         .sub_nav {
@@ -480,25 +521,9 @@ body.noscroll {
             text-align: right;
             display: inline-block;
 
-            @media screen and (max-width: $mobile) {
-                position: static;
-                width: 100%;
-                display: block;
-                text-align: left;
-                text-align: center;
-            }
-
             > li {
                 display: inline;
-                margin-right: 3%;
-
-                @media screen and (min-width: $mobile) {
-                    &:hover, &:focus {
-                        a {
-                            color: $main;
-                        }
-                    }
-                }
+                margin-right: 10px;
 
                 a {
                     font-size: 15px;
@@ -594,124 +619,86 @@ body.noscroll {
                 }
 
                 @media screen and (max-width: $mobile) {
+                    a {
+                        color: #fff;
+                        padding: 10px 20px;
+                        border-bottom: 1px solid #444444;
+                    }
+                }
+            }
+
+            @media screen and (max-width: $mobile) {
+                position: absolute;
+                right: 0;
+                width: 100%;
+                text-align: left;
+                display: none;
+                top: 100%;
+                background: $text;
+                height: calc(100vh - 50px);
+                overflow: auto;
+
+                > li {
                     display: block;
-                    margin-right: 0;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    width: 100%;
 
                     a {
-                        font-size: 17px;
-                        line-height: 40px;
                         display: block;
-                        padding: 0;
-                        color: #fff;
-                        text-align: left;
-                    }
-
-                    &.member, &.cart, &.lang {
-                        display: inline-block;
-                        width: 50px;
-                        text-align: center;
-                        margin-top: 30px;
-
-                        @include box;
-                        @include border-radius(100%);
-
-                        border: 1px solid rgba(255, 255, 255, 0.3);
-
-                        a {
-                            text-align: center;
-                            line-height: 50px;
-                        }
                     }
                 }
             }
         }
 
-        .globalSearch {
+        .nav_search {
             position: absolute;
-            top: 0;
-            right: $gap2;
-            height: 40px;
-            z-index: 1;
+            width: 100%;
+            top: 40px;
+            left: 0;
+            padding: 0 40px;
+            background: $gray;
+            border-bottom: 0px solid #ddd;
+            max-height: 0;
+            overflow: hidden;
+
+            @include transition(all, 0.3s);
+
+            &.active {
+                padding: 20px 40px;
+                max-height: 90px;
+                border-width: 1px;
+            }
 
             @media screen and (max-width: $mobile) {
-                position: fixed;
-                width: 100vw;
-                top: 50px;
-                left: 0;
-                z-index: 1;
-                background: $main;
-                display: block;
-                text-align: right;
-            }
+                padding: 0;
 
-            input[type=text] {
-                font-size: 15px;
-                margin: 0;
-                letter-spacing: 0;
-                color: #fff;
-                line-height: 40px;
-                height: 40px;
-                width: 50px;
-                display: inline-block;
-                outline: none;
-                background: $text;
-                min-width: 1px;
-                padding: 0 10px;
-                position: relative;
-                z-index: 2;
-                right: 0;
-                border: none;
-                cursor: pointer;
-
-                @include box;
-                @include opacity(0);
-                @include transition(all, 0.5s);
-
-                &:focus {
-                    @include opacity(1);
-
-                    width: 200px;
-                    right: 50px;
-                    cursor: auto;
-
-                    @media screen and (max-width: $mobile) {
-                        width: calc(100vw - 155px);
-                    }
+                &.active {
+                    padding: 20px 0;
+                    max-height: 90px;
                 }
             }
+        }
 
-            input[type=submit] {
-                position: absolute;
-                z-index: 1;
-                display: inline-block;
-                width: 50px;
-                height: 40px;
-                text-align: center;
-                line-height: 40px;
-                cursor: pointer;
-                text-decoration: none;
-                border: none;
-                outline: none;
-                background: $main;
-                top: 0;
+        .btn_search {
+            position: absolute;
+            display: inline-block;
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            top: 0;
+            right: 25px;
+            z-index: 2;
+            cursor: pointer;
+
+            @media screen and (max-width: $mobile) {
                 right: 0;
             }
 
             &::after {
-                position: absolute;
-                top: 0;
-                right: 0;
-                pointer-events: none;
                 font-size: 20px;
-                width: 50px;
-                height: 40px;
                 line-height: 40px;
-                text-align: center;
                 color: #fff;
                 content: "\f002";
                 font-family: 'fontawesome';
-                z-index: 5;
             }
         }
     }
@@ -1069,117 +1056,122 @@ body.noscroll {
     }
 }
 
-.updates{
-    border-top:1px solid #eee;
-    padding:60px 0;
+.updates {
+    border-top: 1px solid #eee;
+    padding: 60px 0;
+
     @include box;
 
-    .filter{
+    .filter {
         white-space: nowrap;
         text-align: center;
         overflow: auto;
-        a{
-            display:inline-block;
-            font-size:16px;
+
+        a {
+            display: inline-block;
+            font-size: 16px;
             line-height: 32px;
-            color:$third;
-            padding:0 20px;
+            color: $third;
+            padding: 0 20px;
             text-decoration: none;
+
             @include border-radius(16px);
             @include box;
-            margin:1px;
 
+            margin: 1px;
 
-            &:hover{
-                color:$text;
+            &:hover {
+                color: $text;
             }
 
-            &.selected{
-                color:$main;
-                border:1px solid $main;
+            &.selected {
+                color: $main;
+                border: 1px solid $main;
             }
         }
 
         @media screen and (max-width: $mobile) {
-            a{
-                font-size:14px;
+            a {
+                font-size: 14px;
                 padding: 0 10px;
                 line-height: 24px;
+
                 @include border-radius(12px);
             }
         }
     }
 
-    ul{
-        width:90%;
-        max-width:700px;
-        margin:50px auto;
+    ul {
+        width: 90%;
+        max-width: 700px;
+        margin: 50px auto;
 
-        li{
-            margin-bottom:15px;
-            a{
-                display:block;
-                font-size:16px;
+        li {
+            margin-bottom: 15px;
+
+            a {
+                display: block;
+                font-size: 16px;
                 line-height: 25px;
-                color:$text;
+                color: $text;
 
-                &:hover{
-                    p{
-                        color:$text;
+                &:hover {
+                    p {
+                        color: $text;
                     }
                 }
-                
-                
-                span{
-                    float:left;
-                    margin-right:15px;
-                    display:inline-block;
+
+                span {
+                    float: left;
+                    margin-right: 15px;
+                    display: inline-block;
                     text-decoration: none;
 
-                    &:nth-child(2){
-                        font-size:13px;
-                        color:#fff;
-                        background:$main;
-                        padding:0 10px;
+                    &:nth-child(2) {
+                        font-size: 13px;
+                        color: #fff;
+                        background: $main;
+                        padding: 0 10px;
                     }
                 }
 
-                p{
+                p {
                     display: -webkit-box;
                     max-height: 25px;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 1;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    color:$third;
+                    color: $third;
                 }
             }
 
             @media screen and (max-width: $mobile) {
-                margin-bottom:30px;
-                a{
+                margin-bottom: 30px;
+
+                a {
                     line-height: 24px;
-                    color:$third;
+                    color: $third;
 
-                    span{
-                        margin:0;
-                        float:none;
+                    span {
+                        margin: 0;
+                        float: none;
 
-                        &:nth-child(2){
-                            font-size:12px;
-                            float:right;
-                            padding:0 5px;
+                        &:nth-child(2) {
+                            font-size: 12px;
+                            float: right;
+                            padding: 0 5px;
                             line-height: 20px;
                         }
                     }
 
-                    p{
-                        margin-top:8px;
-                        font-size:14px;
+                    p {
+                        margin-top: 8px;
+                        font-size: 14px;
                         text-decoration: none;
                         display: block;
                         max-height: none;
-                        color:$text;
+                        color: $text;
                     }
                 }
             }
@@ -1910,8 +1902,8 @@ body.noscroll {
     text-decoration: none;
     vertical-align: middle;
 
-    @include border-radius(8px);
-    @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
+    //@include border-radius(8px);
+    //@include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
 
     &::before {
         margin-right: 10px;
@@ -1972,8 +1964,8 @@ body.noscroll {
     width: 90%;
     max-width: 400px;
 
-    @include border-radius(8px);
-    @include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
+    //@include border-radius(8px);
+    //@include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
 
     display: flex;
     position: relative;
@@ -2021,7 +2013,7 @@ body.noscroll {
 
         @include box;
 
-        @include border-radius(8px 0 0 8px);
+        //@include border-radius(8px 0 0 8px);
 
         &::-ms-expand {
             /* for IE 11 */
@@ -2043,7 +2035,8 @@ body.noscroll {
         outline: none;
         cursor: pointer;
 
-        @include border-radius(0 8px 8px 0);
+        //@include border-radius(0 8px 8px 0);
+   
     }
 
     &::after {
@@ -2315,7 +2308,9 @@ body.noscroll {
             outline: none;
 
             @include box;
-            @include border-radius(8px 0 0 8px);
+
+            //@include border-radius(8px 0 0 8px);
+       
         }
 
         input[type=submit] {
@@ -2328,7 +2323,8 @@ body.noscroll {
             outline: none;
             cursor: pointer;
 
-            @include border-radius(0 8px 8px 0);
+            //@include border-radius(0 8px 8px 0);
+       
         }
 
         @media screen and (max-width: $mobile) {
@@ -2402,3 +2398,5 @@ body.noscroll {
     /* Firefox 18- */
     color: #aaa;
 }
+
+//@import "./dropdown";
