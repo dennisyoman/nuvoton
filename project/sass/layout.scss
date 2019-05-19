@@ -158,7 +158,18 @@ body.noscroll {
             }
 
             @media screen and (max-width: $mobile) {
-                display: none;
+                top: auto;
+                right: 5px;
+                bottom: 60px;
+                width: 50px;
+                height: 50px;
+                padding: 0;
+                color: transparent;
+                padding: 13px 10px;
+
+                @include box;
+                @include border-radius(100%);
+                @include box-shadow(0 0 4px rgba(0, 0, 0, 0.6));
             }
         }
 
@@ -169,6 +180,67 @@ body.noscroll {
                 .sub_nav {
                     display: block;
                 }
+            }
+        }
+
+        .promotion {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            width: $navW * 3;
+
+            //height:60px;
+            background: #fff;
+            border-top: 1px solid #ddd;
+            border-top: 10px solid $main;
+            display: none;
+            padding: 5px 0;
+
+            @include box;
+
+            //overflow: auto;
+            @include box-shadow((-12px) -8px 16px rgba(255, 255, 255, 1));
+
+            white-space: nowrap;
+            animation-name: slideUpIn;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-duration: 0.5s;
+            animation-delay: 1s;
+
+            @keyframes slideUpIn {
+                0% {
+                    bottom: -100px;
+
+                    //@include opacity(0);
+               
+                }
+
+                100% {
+                    bottom: 0;
+
+                    //@include opacity(1);
+               
+                }
+            }
+
+            a {
+                height: 50px;
+                font-size: 15px;
+                line-height: 40px;
+                color: $text;
+                margin: 0 15px;
+                display: inline-block;
+                text-decoration: none;
+            }
+
+            img {
+                max-height: 100%;
+                width: auto;
+            }
+
+            &.active {
+                display: block;
             }
         }
 
@@ -187,19 +259,52 @@ body.noscroll {
 
                 .is-hidden {
                     @media screen and (max-width: $mobile) {
-                        display:none !important;
+                        display: none !important;
                     }
-               
                 }
 
                 &.active {
                     .cd-dropdown {
                         display: block;
                     }
+
+                    .cd-dropdown-trigger {
+                        color: $main;
+                        background: #f8f8f8;
+                        border-top: 3px solid $main;
+                        line-height: 37px;
+
+                        @media screen and (max-width: $mobile) {
+                            border-top: 0px solid $main;
+                            line-height: 40px;
+                        }
+
+                        &::before, &::after {
+                            width: 14px;
+                            background: $main;
+                        }
+
+                        &::before {
+                            -webkit-transform: translateX(5px) rotate(-45deg);
+                            -moz-transform: translateX(5px) rotate(-45deg);
+                            -ms-transform: translateX(5px) rotate(-45deg);
+                            -o-transform: translateX(5px) rotate(-45deg);
+                            transform: translateX(5px) rotate(-45deg);
+                        }
+
+                        &::after {
+                            /* transform the arrow into a 'X' */
+                            -webkit-transform: rotate(45deg);
+                            -moz-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                            -o-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                    }
                 }
 
                 .cd-dropdown-trigger {
-                    font-size: 17px;
+                    font-size: 16px;
                     color: #fff;
                     line-height: 40px;
                     display: inline-block;
@@ -208,12 +313,49 @@ body.noscroll {
                     cursor: pointer;
                     padding: 0 30px;
 
+                    &::before, &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -1px;
+                        height: 2px;
+                        width: 9px;
+                        background: #ffffff;
+                        -webkit-backface-visibility: hidden;
+                        backface-visibility: hidden;
+                        -webkit-transition: width 0.3s, -webkit-transform 0.3s;
+                        -moz-transition: width 0.3s, -moz-transform 0.3s;
+                        transition: width 0.3s, transform 0.3s;
+                    }
+
+                    &::before {
+                        right: 15px;
+                        -webkit-transform: rotate(45deg);
+                        -moz-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        -o-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+
+                    &::after {
+                        right: 10px;
+                        -webkit-transform: rotate(-45deg);
+                        -moz-transform: rotate(-45deg);
+                        -ms-transform: rotate(-45deg);
+                        -o-transform: rotate(-45deg);
+                        transform: rotate(-45deg);
+                    }
+
                     @media screen and (max-width: $mobile) {
                         white-space: nowrap;
                         font-size: 15px;
-                        padding: 0 10px;
+                        padding: 0;
                         text-align: center;
-                        border-right: 1px solid rgba(255, 255, 255, 0.3);
+                        display:block;
+
+                        &::before, &::after {
+                            display: none;
+                        }
                     }
                 }
 
@@ -227,13 +369,20 @@ body.noscroll {
                     overflow: auto;
                     height: calc(100vh - 100px);
 
+                    //宣傳欄位
+                    padding-bottom: 80px;
+
+                    @include box;
 
                     @media screen and (max-width: $mobile) {
                         top: 50px;
                         height: calc(100vh - 50px);
-                        width:100%;
+                        width: 100%;
                         overflow: auto;
-                        z-index:999;
+                        z-index: 999;
+
+                        //宣傳欄位
+                        padding-bottom: 0;
                     }
 
                     &::after {
@@ -247,8 +396,14 @@ body.noscroll {
                         border-left: 1px solid #ddd;
                         overflow: auto;
                         z-index: 1;
+
+                        //宣傳欄位
+                        padding-bottom: 80px;
+
+                        @include box;
+
                         @media screen and (max-width: $mobile) {
-                            display:none;
+                            display: none;
                         }
                     }
 
@@ -263,7 +418,7 @@ body.noscroll {
                         @include box;
                     }
 
-                    li{
+                    li {
                         @media screen and (max-width: $mobile) {
                             font-size: 15px;
                             line-height: 40px;
@@ -271,25 +426,27 @@ body.noscroll {
                     }
 
                     h2 {
-                        font-size:18px;
+                        font-size: 18px;
                         display: none;
+
                         @media screen and (max-width: $mobile) {
-                            display:block;
+                            display: block;
                             text-align: center;
                             line-height: 30px;
-                            background:$main;
-                            color:#fff;
-                            position:fixed;
-                            top:0;
-                            left:0;
-                            width:100%;
+                            background: $main;
+                            color: #fff;
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
                         }
                     }
 
                     .cd-close {
                         display: none;
+
                         @media screen and (max-width: $mobile) {
-                            display:block;
+                            display: block;
                             position: fixed;
                             z-index: 1;
                             right: 0;
@@ -297,11 +454,11 @@ body.noscroll {
                             height: 50px;
                             width: 50px;
                             line-height: 50px;
-                            padding:0;
+                            padding: 0;
                             text-align: center;
 
                             &::after {
-                                font-size:20px;
+                                font-size: 20px;
                                 content: "\f00d";
                                 font-family: "fontawesome";
                                 color: #fff;
@@ -313,14 +470,18 @@ body.noscroll {
                         position: relative;
                         z-index: 3;
 
-                        ul{
+                        ul {
                             @media screen and (max-width: $mobile) {
-                                display:none;
+                                display: none;
                             }
                         }
 
                         //level 2
                         > li {
+                            @include transition(border,.3s);
+                            &:hover{
+                                border-left:3px solid $main;
+                            }
                             > a {
                                 border-bottom: 1px solid #eee;
 
@@ -339,12 +500,11 @@ body.noscroll {
 
                                 > ul {
                                     display: block;
-                                    
                                 }
                             }
                         }
                     }
-                    
+
                     //level 3
                     .cd-secondary-dropdown {
                         position: fixed;
@@ -355,21 +515,29 @@ body.noscroll {
                         overflow: auto;
                         z-index: 2;
                         display: none;
-                        background:#fff;
+                        background: #fff;
+
+                        //宣傳欄位
+                        padding-bottom: 80px;
+
+                        @include box;
 
                         @media screen and (max-width: $mobile) {
-                            top:50px;
-                            left:0;
-                            width:100%;
+                            top: 50px;
+                            left: 0;
+                            width: 100%;
                             height: calc(100vh - 50px);
 
+                            //宣傳欄位
+                            padding-bottom: 0;
                         }
 
                         .go-back {
                             display: none;
                             float: none;
-                            background:$main;
-                            pointer-events:none;
+                            background: $main;
+                            pointer-events: none;
+
                             a {
                                 &::before {
                                     content: "\f104";
@@ -383,16 +551,17 @@ body.noscroll {
                             }
 
                             @media screen and (max-width: $mobile) {
-                                display:block;
-                                position:fixed;
-                                top:0;
-                                left:0;
+                                display: block;
+                                position: fixed;
+                                top: 0;
+                                left: 0;
                                 pointer-events: none;
-                                z-index:999;
-                                width:calc(100% - 50px);
-                                a{
+                                z-index: 999;
+                                width: calc(100% - 50px);
+
+                                a {
                                     line-height: 30px;
-                                    color:#fff;
+                                    color: #fff;
                                 }
                             }
                         }
@@ -413,7 +582,7 @@ body.noscroll {
                                 }
 
                                 @media screen and (max-width: $mobile) {
-                                    padding:20px 20px;
+                                    padding: 20px 20px;
                                 }
                             }
                         }
@@ -421,83 +590,89 @@ body.noscroll {
                         > li.has-children {
                             width: 50%;
                             float: left;
+
                             @media screen and (max-width: $mobile) {
-                                width:100%;
-                                float:none;
+                                width: 100%;
+                                float: none;
                                 border-bottom: 1px solid #eee;
+
                                 &::after {
                                     content: "\f105";
                                     font-family: "fontawesome";
                                     float: right;
                                     color: #b3b3b3;
-                                    margin:0 10px;
+                                    margin: 0 10px;
                                 }
 
-                                &.active{
-                                    > ul{
-                                        display:block;
+                                &.active {
+                                    > ul {
+                                        display: block;
                                     }
                                 }
                             }
 
                             > a {
                                 display: none;
+
                                 @media screen and (max-width: $mobile) {
-                                    display:inline-block;
-                                    width:auto;
+                                    display: inline-block;
+                                    width: auto;
                                 }
                             }
 
                             > ul {
                                 .go-back {
-                                    pointer-events:auto;
+                                    pointer-events: auto;
                                 }
+
                                 .see-all {
                                     a {
                                         padding: 10px 20px;
                                         margin-left: 0;
-                                        border-width:0;
-                                        display:block;
+                                        border-width: 0;
+                                        display: block;
+
                                         &::after {
-                                            display:none;
+                                            display: none;
                                         }
+
                                         @media screen and (max-width: $mobile) {
                                             padding: 20px;
-                                            border-width:1px;
+                                            border-width: 1px;
+
                                             &::after {
-                                                display:inline;
+                                                display: inline;
                                             }
                                         }
                                     }
-
                                 }
 
-                                li{
-
+                                li {
                                     a {
                                         padding: 0 20px;
                                         margin-left: 10px;
+
                                         @media screen and (max-width: $mobile) {
                                             padding: 10px 20px;
                                             margin-left: 0;
                                         }
                                     }
+
                                     @media screen and (max-width: $mobile) {
                                         border-bottom: 1px solid #eee;
-                                        
                                     }
                                 }
 
                                 margin-bottom: 30px;
 
                                 @media screen and (max-width: $mobile) {
-                                    position:fixed;
-                                    top:50px;
-                                    left:0;
-                                    width:100%;
+                                    position: fixed;
+                                    top: 50px;
+                                    left: 0;
+                                    width: 100%;
                                     height: calc(100vh - 50px);
                                     overflow: auto;
-                                    background:#fff;
+                                    background: #fff;
                                     margin-bottom: 0px;
                                 }
                             }
@@ -508,9 +683,18 @@ body.noscroll {
                         }
                     }
                 }
-            }
 
-            @media screen and (max-width: $mobile) {}
+                @media screen and (max-width: $mobile) {
+                    float: left;
+                    width:33.33%;
+                    border-right:1px solid rgba(255,255,255,.3);
+                    @include box;
+
+                    &:last-child{
+                        border:none;
+                    }
+                }
+            }
         }
 
         .sub_nav {
@@ -520,10 +704,12 @@ body.noscroll {
             width: 60%;
             text-align: right;
             display: inline-block;
+            z-index: 3;
 
             > li {
                 display: inline;
                 margin-right: 10px;
+                position: relative;
 
                 a {
                     font-size: 15px;
@@ -535,17 +721,108 @@ body.noscroll {
                     cursor: pointer;
 
                     @include transition(all, 0.3s);
+
+                    span {
+                        display: none;
+
+                        @media screen and (max-width: $mobile) {
+                            display: inline;
+                        }
+                    }
+                }
+
+                &:hover {
+                    > ul {
+                        display: block;
+                    }
+                }
+
+                &.has-children {
+                    &::after {
+                        content: "\f107";
+                        font-family: "fontawesome";
+                        color: #b3b3b3;
+                        font-size: 14px;
+                    }
+
+                    @media screen and (max-width: $mobile) {
+                        &::after {
+                            display: none;
+                        }
+
+                        &::before {
+                            content: "\f107";
+                            font-family: "fontawesome";
+                            color: #b3b3b3;
+                            font-size: 14px;
+                            line-height: 50px;
+                            float: right;
+                            width: 20px;
+                        }
+                    }
+                }
+
+                > ul {
+                    position: absolute;
+                    top: 100%;
+                    left: -15px;
+                    width: auto;
+                    background: $text;
+                    text-align: left;
+                    display: none;
+
+                    > li {
+                        &:hover {
+                            background: $third;
+                        }
+
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+                        a {
+                            color: #fff;
+                            display: block;
+                            padding: 5px 15px;
+                            white-space: nowrap;
+
+                            @include box;
+                        }
+
+                        @media screen and (max-width: $mobile) {
+                            background: #3f3f3f;
+                            border:none;
+
+                            &:hover {
+                                background: #3f3f3f;
+                            }
+
+                            a {
+                                padding: 10px 20px;
+                                padding-left: 35px;
+                                display: inline-block;
+                                width: auto;
+                                white-space: normal;
+                            }
+                        }
+                    }
+
+                    @media screen and (max-width: $mobile) {
+                        position: static;
+
+                        display: block;
+                    }
                 }
 
                 &.member {
                     margin-right: 15px;
 
-                    a {
-                        font-size: 20px;
-
+                    > a {
                         &::before {
+                            font-size: 20px;
                             content: "\f007";
                             font-family: 'fontawesome';
+                            @media screen and (max-width: $mobile) {
+                                margin-right:8px;
+                            }
                         }
                     }
                 }
@@ -553,12 +830,14 @@ body.noscroll {
                 &.cart {
                     margin-right: 15px;
 
-                    a {
-                        font-size: 20px;
-
+                    > a {
                         &::before {
+                            font-size: 20px;
                             content: "\f07a";
                             font-family: 'fontawesome';
+                            @media screen and (max-width: $mobile) {
+                                margin-right:8px;
+                            }
                         }
                     }
                 }
@@ -567,62 +846,26 @@ body.noscroll {
                     position: relative;
                     margin-right: 0;
 
-                    a {
-                        font-size: 20px;
-
+                    > a {
                         &::before {
+                            font-size: 20px;
                             content: "\f0ac";
                             font-family: 'fontawesome';
+                            @media screen and (max-width: $mobile) {
+                                margin-right:8px;
+                            }
                         }
-                    }
-
-                    select, option {
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        margin: 0;
-                        border: none;
-                        border-right: none;
-                        text-align: center;
-                        letter-spacing: 0.05em;
-                        color: $text;
-                        width: auto;
-                        outline: none;
-                        height: 40px;
-                        width: 100%;
-                        line-height: 40px;
-                        background: #fff;
-                        text-align: center;
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
-                        appearance: none;
-                        cursor: pointer;
-                        padding: 0;
-                        font-size: 13px;
-
-                        @include box;
-                        @include opacity(0);
-
-                        &::-ms-expand {
-                            /* for IE 11 */
-                            display: none;
-                        }
-
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-
-                    option {
-                        padding: 10px;
                     }
                 }
 
                 @media screen and (max-width: $mobile) {
+                    border-bottom: 1px solid #444444;
+
                     a {
                         color: #fff;
                         padding: 10px 20px;
-                        border-bottom: 1px solid #444444;
+                        display: inline-block;
+                        width: auto;
                     }
                 }
             }
@@ -635,7 +878,7 @@ body.noscroll {
                 display: none;
                 top: 100%;
                 background: $text;
-                height: calc(100vh - 50px);
+                height: calc(100vh - 85px);
                 overflow: auto;
 
                 > li {
@@ -643,7 +886,8 @@ body.noscroll {
                     width: 100%;
 
                     a {
-                        display: block;
+                        display: inline-block;
+                        width: auto;
                     }
                 }
             }
@@ -659,6 +903,7 @@ body.noscroll {
             border-bottom: 0px solid #ddd;
             max-height: 0;
             overflow: hidden;
+            z-index: 4;
 
             @include transition(all, 0.3s);
 
@@ -685,13 +930,9 @@ body.noscroll {
             height: 40px;
             text-align: center;
             top: 0;
-            right: 25px;
+            right: 35px;
             z-index: 2;
             cursor: pointer;
-
-            @media screen and (max-width: $mobile) {
-                right: 0;
-            }
 
             &::after {
                 font-size: 20px;
@@ -699,6 +940,24 @@ body.noscroll {
                 color: #fff;
                 content: "\f002";
                 font-family: 'fontawesome';
+            }
+
+            @media screen and (max-width: $mobile) {
+                right: 0;
+                position: fixed;
+                width: 50px;
+                height: 50px;
+                top: auto;
+                bottom: 5px;
+                right: 5px;
+                background: $text;
+
+                @include border-radius(100%);
+                @include box-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+
+                &::after {
+                    line-height: 50px;
+                }
             }
         }
     }
@@ -999,7 +1258,7 @@ body.noscroll {
         padding-bottom: 20px;
 
         @media screen and (max-width: $mobile) {
-            height: 350px !important;
+            //height: 380px !important;
         }
 
         img {

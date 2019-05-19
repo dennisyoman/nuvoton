@@ -7,7 +7,12 @@ $(document).ready(
             $(this).toggleClass("active");
             $("#nav").toggleClass("active");
             $("#header .logo").toggleClass("disabled");
-            //$("#header .logo").toggle();
+            if($(this).hasClass("active")){
+                $("body").addClass("noscroll");
+            }else{
+                $("body").removeClass("noscroll");
+            }
+            
         })
 
         //nav
@@ -18,10 +23,12 @@ $(document).ready(
             if($(this).parent().hasClass("active")){
                 $("#wrapper").removeClass("overlay");
                 $("body").removeClass("noscroll");
+                $("#promotion").removeClass("active");
             }else{
                 $(".cd-dropdown-trigger").parent().removeClass("active");
                 $("#wrapper").addClass("overlay");
                 $("body").addClass("noscroll");
+                $("#promotion").addClass("active");
             }
             $(this).parent().toggleClass("active");
         })
@@ -40,9 +47,15 @@ $(document).ready(
             }
         });
 
+        $(".sub_nav").find("> li").each(function(index) {
+            if($(this).children("ul").length>0){
+                $(this).addClass("has-children");
+            }
+        });
+
         $(".cd-dropdown-content li.has-children").hover(
             function() {
-                $(this).delay(150).queue(function(){
+                $(this).delay(66).queue(function(){
                     $(this).addClass("active").find("> ul").scrollTop(0);
                     $(this).dequeue();
                 });
@@ -198,12 +211,12 @@ $(document).ready(
                 //centeredSlides: true,
                 breakpoints: {
                     // when window width is <= 320px
-                    350: {
+                    500: {
                       slidesPerView: 1,
                       slidesPerGroup:1,
                     },
                     // when window width is <= 480px
-                    650: {
+                    750: {
                       slidesPerView: 2,
                       slidesPerGroup:2,
                     },
