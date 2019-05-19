@@ -2438,10 +2438,16 @@ body.noscroll {
                 margin-right: 0;
                 margin-bottom: 15px;
 
+                &::after{
+                    @include clear;
+                }
+
                 li {
                     display: inline-block;
                     width: 31%;
+                    font-size:14px;
                     margin-right: 2.5%;
+                    float:left;
 
                     &:nth-child(3n+1) {
                         margin-right: 0%;
