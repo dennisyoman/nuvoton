@@ -991,8 +991,13 @@ body.noscroll {
 
     h2 {
         font-size: 36px;
+        line-height: 1.3em;
         color: $text;
         font-weight: bold;
+
+        span{
+            margin:0 5px;
+        }
     }
 
     .collection {
@@ -1027,6 +1032,11 @@ body.noscroll {
 
         h2 {
             font-size: 24px;
+
+            span{
+                display:block;
+                margin:0;
+            }
         }
 
         padding: 70px 20px;
