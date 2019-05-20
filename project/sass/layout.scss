@@ -8,6 +8,16 @@ html, body, select, option, .modal, input {
     background: #000;
 }
 
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
 body {
     font-size: 1.6rem;
 }
@@ -195,7 +205,7 @@ body.noscroll {
             border-top: 10px solid $main;
             display: none;
             padding: 5px 0;
-            z-index:1;
+            z-index: 1;
 
             @include box;
 
@@ -352,7 +362,7 @@ body.noscroll {
                         font-size: 15px;
                         padding: 0;
                         text-align: center;
-                        display:block;
+                        display: block;
 
                         &::before, &::after {
                             display: none;
@@ -365,7 +375,7 @@ body.noscroll {
                     position: fixed;
                     top: 100px;
                     left: 0;
-                    z-index:1;
+                    z-index: 1;
                     background: #f8f8f8;
                     width: $navW;
                     overflow: auto;
@@ -441,7 +451,7 @@ body.noscroll {
                             top: 0;
                             left: 0;
                             width: 100%;
-                            z-index:1;
+                            z-index: 1;
                         }
                     }
 
@@ -481,10 +491,12 @@ body.noscroll {
 
                         //level 2
                         > li {
-                            @include transition(border,.3s);
-                            &:hover{
-                                border-left:3px solid $main;
+                            @include transition(border, 0.3s);
+
+                            &:hover {
+                                border-left: 3px solid $main;
                             }
+
                             > a {
                                 border-bottom: 1px solid #eee;
 
@@ -677,7 +689,7 @@ body.noscroll {
                                     overflow: auto;
                                     background: #fff;
                                     margin-bottom: 0px;
-                                    z-index:1;
+                                    z-index: 1;
                                 }
                             }
                         }
@@ -690,12 +702,13 @@ body.noscroll {
 
                 @media screen and (max-width: $mobile) {
                     float: left;
-                    width:33.33%;
-                    border-right:1px solid rgba(255,255,255,.3);
+                    width: 33.33%;
+                    border-right: 1px solid rgba(255, 255, 255, 0.3);
+
                     @include box;
 
-                    &:last-child{
-                        border:none;
+                    &:last-child {
+                        border: none;
                     }
                 }
             }
@@ -793,7 +806,7 @@ body.noscroll {
 
                         @media screen and (max-width: $mobile) {
                             background: #3f3f3f;
-                            border:none;
+                            border: none;
 
                             &:hover {
                                 background: #3f3f3f;
@@ -811,7 +824,6 @@ body.noscroll {
 
                     @media screen and (max-width: $mobile) {
                         position: static;
-
                         display: block;
                     }
                 }
@@ -824,8 +836,9 @@ body.noscroll {
                             font-size: 20px;
                             content: "\f007";
                             font-family: 'fontawesome';
+
                             @media screen and (max-width: $mobile) {
-                                margin-right:8px;
+                                margin-right: 8px;
                             }
                         }
                     }
@@ -839,8 +852,9 @@ body.noscroll {
                             font-size: 20px;
                             content: "\f07a";
                             font-family: 'fontawesome';
+
                             @media screen and (max-width: $mobile) {
-                                margin-right:8px;
+                                margin-right: 8px;
                             }
                         }
                     }
@@ -855,8 +869,9 @@ body.noscroll {
                             font-size: 20px;
                             content: "\f0ac";
                             font-family: 'fontawesome';
+
                             @media screen and (max-width: $mobile) {
-                                margin-right:8px;
+                                margin-right: 8px;
                             }
                         }
                     }
@@ -2264,15 +2279,16 @@ body.noscroll {
         outline: none;
         height: 50px;
         line-height: 50px;
-        background: #eee;
-
-        //-webkit-appearance: none;
-        //-moz-appearance: none;
-        //appearance: none;
+        background: #eee url("../images/btn_dropdown.png") no-repeat center right 10px;
+        background-size: 10px 8px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         cursor: pointer;
         padding: 0 15px;
         font-size: 15px;
         position: relative;
+        padding-right: 30px;
 
         @include box;
 
@@ -2286,6 +2302,10 @@ body.noscroll {
         &:focus {
             outline: none;
         }
+    }
+
+    option{
+        background:#fff;
     }
 
     input[type=submit] {
@@ -2442,16 +2462,16 @@ body.noscroll {
                 margin-right: 0;
                 margin-bottom: 15px;
 
-                &::after{
+                &::after {
                     @include clear;
                 }
 
                 li {
                     display: inline-block;
                     width: 31%;
-                    font-size:14px;
+                    font-size: 14px;
                     margin-right: 2.5%;
-                    float:left;
+                    float: left;
 
                     &:nth-child(3n+1) {
                         margin-right: 0%;
