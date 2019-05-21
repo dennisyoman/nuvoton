@@ -15,6 +15,11 @@ $(document).ready(
             
         })
 
+        //menu
+        $("#aside-close").click(function() {
+            $("#aside").parent().toggleClass("active");
+        })
+
         //nav
         $("#nav .btn_search").click(function() {
             $("#nav_search").toggleClass("active");
@@ -72,14 +77,31 @@ $(document).ready(
             }
         })
 
+        $(".aside").find("li").each(function(index) {
+            if($(this).children("ul").length>0){
+                $(this).addClass("has-children");
+                $(this).click(function() {
+                    $(this).children("ul").toggle("fast");
+                })
+            }
+        });
+
+        
+
         
 
         //tab
         if ($(".tab").length > 0) {
-            $(".tab").children("div").each(function(index) {
+            $(".tab").children("a").each(function(index) {
                 $(this).click(function() {
                     $(this).addClass("selected").siblings(".selected").removeClass("selected");
-                    $(".tab_content").children("div").eq(index).addClass("selected").siblings(".selected").removeClass("selected");
+                    var tabID = $(this).attr("tab");
+
+                    $(".tab_content").children("div").hide().each(function(index) {
+                        if($(this).attr("tab") == tabID){
+                            $(this).slideDown("fast");
+                        }
+                    }) 
                 })
             }).eq(0).click();  
         }
@@ -197,6 +219,29 @@ $(document).ready(
                 }, 0);
             });
         };
+
+        // Add smooth scrolling to all links
+          $("a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+
+              // Store hash
+              var hash = this.hash;
+
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: parseInt($(hash).offset().top-160)+"px"
+              }, 800, function(){
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
 
         //initialize swiper when document ready
         if ($("#featured").length > 0) {
@@ -523,5 +568,5 @@ function bgImg(){
 
 window.onload = function(){
     bgImg();
-    //$(".sticker").sticky({topSpacing:90,zIndex:10,center:true});
+    $(".sticker").sticky({topSpacing:100,zIndex:10,center:true});
 };
