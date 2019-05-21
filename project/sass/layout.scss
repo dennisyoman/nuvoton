@@ -387,14 +387,13 @@ body.noscroll {
                     @include box;
 
                     @media screen and (max-width: $mobile) {
-                        top: 50px;
-                        height: calc(100vh - 50px);
+                        top: 0px;
+                        height: 100vh;
                         width: 100%;
                         overflow: auto;
                         z-index: 999;
-
-                        //宣傳欄位
-                        padding-bottom: 0;
+                        padding-top:50px;
+                        background: #fff;
                     }
 
                     &::after {
@@ -461,7 +460,7 @@ body.noscroll {
                         @media screen and (max-width: $mobile) {
                             display: block;
                             position: fixed;
-                            z-index: 1;
+                            z-index: 1000;
                             right: 0;
                             top: 0;
                             height: 50px;
@@ -469,6 +468,7 @@ body.noscroll {
                             line-height: 50px;
                             padding: 0;
                             text-align: center;
+                            background: $main;
 
                             &::after {
                                 font-size: 20px;
@@ -483,6 +483,11 @@ body.noscroll {
                         position: relative;
                         z-index: 3;
 
+                        @media screen and (max-width: $mobile) {
+                            @include box;
+                            padding-bottom:80px;
+                        }
+
                         ul {
                             @media screen and (max-width: $mobile) {
                                 display: none;
@@ -495,6 +500,9 @@ body.noscroll {
 
                             &:hover {
                                 border-left: 3px solid $main;
+                                @media screen and (max-width: $mobile) {
+                                    border-left: 0px solid $main;
+                                }
                             }
 
                             > a {
@@ -512,6 +520,10 @@ body.noscroll {
                                 background: #fff;
                                 width: calc(100% + 1px);
                                 padding-right: 1px;
+                                @media screen and (max-width: $mobile) {
+                                    width: 100%;
+                                }
+
 
                                 > ul {
                                     display: block;
@@ -538,13 +550,11 @@ body.noscroll {
                         @include box;
 
                         @media screen and (max-width: $mobile) {
-                            top: 50px;
+                            top: 0;
                             left: 0;
                             width: 100%;
-                            height: calc(100vh - 50px);
-
-                            //宣傳欄位
-                            padding-bottom: 0;
+                            height:100vh;
+                            padding-top:50px;
                         }
 
                         .go-back {
@@ -570,9 +580,10 @@ body.noscroll {
                                 position: fixed;
                                 top: 0;
                                 left: 0;
-                                pointer-events: none;
-                                z-index: 999;
+                                pointer-events: auto;
+                                z-index: 1;
                                 width: calc(100% - 50px);
+                                height:50px;
 
                                 a {
                                     line-height: 30px;
@@ -636,6 +647,8 @@ body.noscroll {
                             }
 
                             > ul {
+                                @include box;
+                                padding-bottom:80px;
                                 .go-back {
                                     pointer-events: auto;
                                 }
@@ -682,14 +695,15 @@ body.noscroll {
 
                                 @media screen and (max-width: $mobile) {
                                     position: fixed;
-                                    top: 50px;
+                                    top: 0px;
                                     left: 0;
                                     width: 100%;
-                                    height: calc(100vh - 50px);
+                                    height: 100vh;
                                     overflow: auto;
                                     background: #fff;
                                     margin-bottom: 0px;
                                     z-index: 1;
+                                    padding-top:50px;
                                 }
                             }
                         }
