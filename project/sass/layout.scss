@@ -1721,6 +1721,12 @@ body.noscroll {
                 }
 
                 &.has-children {
+                    &:hover{
+                        background:$gray;
+                        &::before{
+                            color:$main;
+                        }
+                    }
                     &::before {
                         line-height: 30px;
                         font-size: 14px;
@@ -2116,6 +2122,7 @@ body.noscroll {
                         color: $third;
                         padding: 10px 20px;
                         border: 1px solid #eee;
+                        background:$gray;
 
                         @include box;
                         @include transition(all, 0.3s);
@@ -2124,8 +2131,12 @@ body.noscroll {
                         text-decoration: none;
 
                         &:hover, &:focus {
-                            border-color: $third;
+                            border-color: $main;
+                            background:#fff;
                             color: $text;
+                            &::after {
+                                margin-left:15px;
+                            }
                         }
 
                         &::after {
@@ -2134,6 +2145,7 @@ body.noscroll {
                             content: "\f178";
                             font-family: 'fontawesome';
                             margin-left: 10px;
+                            @include transition(all, 0.3s);
                         }
                     }
                 }
