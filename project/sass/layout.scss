@@ -623,9 +623,13 @@ body.noscroll {
                             width: 50%;
                             float: left;
 
+                            &:nth-child(even){
+                                float:right;
+                            }
+
                             @media screen and (max-width: $mobile) {
                                 width: 100%;
-                                float: none;
+                                float: none !important;
                                 border-bottom: 1px solid #eee;
 
                                 &::after {
@@ -655,7 +659,7 @@ body.noscroll {
                             > ul {
                                 @include box;
 
-                                padding-bottom: 80px;
+                                padding-bottom: 0px;
 
                                 .go-back {
                                     pointer-events: auto;
