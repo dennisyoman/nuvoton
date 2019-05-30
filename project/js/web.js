@@ -86,6 +86,15 @@ $(document).ready(
             }
         });
 
+        $(".sub_nav").find("li").each(function(index) {
+            if($(this).children("ul").length>0){
+                $(this).addClass("has-children");
+                $(this).click(function() {
+                    $(this).children("ul").toggle("fast");
+                })
+            }
+        });
+
         
 
         

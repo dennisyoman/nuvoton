@@ -151,7 +151,7 @@ body.noscroll {
         .collection {
             position: fixed;
             z-index: 1;
-            top: 160px;
+            top: 190px;
             right: 0;
             width: 30px;
             padding: 15px 8px;
@@ -204,7 +204,7 @@ body.noscroll {
             width: $navW * 3;
 
             //height:60px;
-            background: $light;
+            background: #fff;
             border-top: 1px solid #ddd;
             border-top: 10px solid $main;
             display: none;
@@ -689,7 +689,7 @@ body.noscroll {
 
                                 li {
                                     a {
-                                        padding: 0 20px;
+                                        padding: 5px 20px;
                                         margin-left: 10px;
 
                                         @media screen and (max-width: $mobile) {
@@ -743,7 +743,7 @@ body.noscroll {
         .sub_nav {
             position: absolute;
             right: $gap;
-            top: -45px;
+            top: -50px;
             width: 60%;
             text-align: right;
             display: inline-block;
@@ -757,7 +757,7 @@ body.noscroll {
                 a {
                     font-size: 15px;
                     color: $text;
-                    line-height: 30px;
+                    line-height: 40px;
                     display: inline-block;
                     text-decoration: none;
                     letter-spacing: 0.05em;
@@ -768,6 +768,10 @@ body.noscroll {
                     span {
                         display: none;
 
+                        &:nth-child(2){
+                            display:inline;
+                        }
+
                         @media screen and (max-width: $mobile) {
                             display: inline;
                         }
@@ -776,7 +780,9 @@ body.noscroll {
 
                 &:hover {
                     > ul {
-                        display: block;
+                        @media screen and (min-width: $mobile) {
+                            display: block;
+                        }
                     }
                 }
 
@@ -807,39 +813,43 @@ body.noscroll {
 
                 > ul {
                     position: absolute;
-                    top: 100%;
-                    left: -15px;
+                    top: 40px;
+                    left: -20px;
                     width: auto;
-                    background: $text;
+                    background: #fff;
                     text-align: left;
                     display: none;
+                    border:1px solid #ddd;
+                    border-top:4px solid $main;
+                    @include box-shadow(1px 0 2px rgba(0,0,0,.1));
 
                     > li {
                         &:hover {
-                            background: $third;
+                            background: #eee;
                         }
 
                         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
                         a {
-                            color: #fff;
+                            color: $text;
+                            font-size: 14px;
                             display: block;
-                            padding: 5px 15px;
+                            padding: 0px 15px;
                             white-space: nowrap;
 
                             @include box;
                         }
 
                         @media screen and (max-width: $mobile) {
-                            background: #3f3f3f;
+                            background: #f8f8f8;
                             border: none;
 
                             &:hover {
-                                background: #3f3f3f;
+                                background: #f8f8f8;
                             }
 
                             a {
-                                padding: 10px 20px;
+                                padding: 5px 20px;
                                 padding-left: 35px;
                                 display: inline-block;
                                 width: auto;
@@ -850,7 +860,9 @@ body.noscroll {
 
                     @media screen and (max-width: $mobile) {
                         position: static;
-                        display: block;
+                        //display: block;
+                        border:none;
+                        border-top:1px solid #ddd;
                     }
                 }
 
@@ -903,15 +915,7 @@ body.noscroll {
                     margin-right: 0;
 
                     > a {
-                        &::before {
-                            font-size: 20px;
-                            content: "\f0ac";
-                            font-family: 'fontawesome';
-
-                            @media screen and (max-width: $mobile) {
-                                margin-right: 8px;
-                            }
-                        }
+                        font-size:14px;
                     }
 
                     &.has-children {
@@ -922,11 +926,11 @@ body.noscroll {
                 }
 
                 @media screen and (max-width: $mobile) {
-                    border-bottom: 1px solid #444444;
+                    border-bottom: 1px solid #ddd;
 
                     a {
-                        color: #fff;
-                        padding: 10px 20px;
+                        color: $text;
+                        padding: 5px 20px;
                         display: inline-block;
                         width: auto;
                     }
@@ -940,7 +944,7 @@ body.noscroll {
                 text-align: left;
                 display: none;
                 top: 100%;
-                background: $text;
+                background: #fff;
                 height: calc(100vh - 85px);
                 overflow: auto;
 
@@ -966,7 +970,7 @@ body.noscroll {
             border-bottom: 0px solid #ddd;
             max-height: 0;
             overflow: hidden;
-            z-index: 4;
+            z-index: 1;
 
             @include transition(all, 0.3s);
 
@@ -1446,10 +1450,12 @@ body.noscroll {
                 font-size: 16px;
                 line-height: 25px;
                 color: $text;
+                text-decoration: none;
 
                 &:hover {
                     p {
                         color: $text;
+                        text-decoration: underline;
                     }
                 }
 
@@ -1474,7 +1480,7 @@ body.noscroll {
                     -webkit-line-clamp: 1;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    color: $third;
+                    //color: $third;
                 }
             }
 
@@ -1542,7 +1548,7 @@ body.noscroll {
                 @include translate(100%, 0);
 
                 &::after {
-                    content: "\f061";
+                    content: "\f101";
                 }
 
                 @media screen and (max-width: $mobile) {
@@ -1550,12 +1556,14 @@ body.noscroll {
                     height: 50px;
                     line-height: 50px;
                     width: 100%;
+                    //background:$main;
 
                     @include translate(0, 0);
 
                     &::after {
                         content: "\f00d";
                         margin-right: 20px;
+                        //color:#fff;
                     }
                 }
             }
@@ -1596,25 +1604,28 @@ body.noscroll {
             line-height: 40px;
             text-align: center;
             position: absolute;
-            background: $main;
+            //background: #f8f8f8;
             top: 0;
             right: 0;
             cursor:pointer;
             //@include translate(100%, 0);
 
             &::after {
-                content: "\f060";
+                content: "\f100";
                 font-family: 'fontawesome';
-                color: #fff;
+                color: $third;
                 font-size: 16px;
             }
 
             @media screen and (max-width: $mobile) {
-                @include translate(100%, 155px);
-                width:25px;
+                @include translate(100%, 192px);
+                width:20px;
+
+                background: $main;
 
                 &::after {
-                    content: "\f061";
+                    color:#fff;
+                    content: "\f105";
                 }
             }
         }
@@ -1686,14 +1697,16 @@ body.noscroll {
 
             li {
                 border-bottom: 1px solid #eee;
+                
 
                 a {
                     font-size: 14px;
-                    line-height: 20px;
-                    color: $third;
+                    line-height: 25px;
+                    color: $text;
                     text-decoration: none;
                     display: inline-block;
                     padding: 5px $gap2;
+                    padding-left:35px;
 
                     &:hover {
                         &:link {
@@ -1709,9 +1722,8 @@ body.noscroll {
                 }
 
                 > ul {
-                    background: $light;
-                    border-top: 1px solid #eee;
-                    border-bottom: 1px solid #eee;
+                    background: #f8f8f8;
+                    border-top: 1px solid #ddd;
                     display: none;
 
                     li {
@@ -1726,7 +1738,7 @@ body.noscroll {
 
                 &.has-children {
                     &:hover{
-                        background:$gray;
+                        //background:$gray;
                         &::before{
                             color:$main;
                         }
@@ -1790,8 +1802,9 @@ body.noscroll {
             background: $gray;
 
             > div {
-                padding: $gap;
-                padding-bottom: $gap * 2;
+                padding: $gap2;
+                padding-bottom: $gap2 * 2;
+                padding-right:70px;
                 max-width: $maxW;
                 margin: 0 auto;
 
@@ -1839,7 +1852,9 @@ body.noscroll {
                 background: #fff;
 
                 > div {
-                    padding: $gap $gap2;
+                    padding: $gap2;
+                    padding-top:$gap;
+                    padding-left:$gap;
 
                     &::after {
                         @include clear;
@@ -1923,7 +1938,7 @@ body.noscroll {
                     display: none;
                     background: $light;
                     margin: 0 auto;
-                    padding: $gap2 $gap;
+                    padding: $gap2 $gap2;
 
                     @include box;
 
@@ -2198,9 +2213,9 @@ body.noscroll {
 
             &.export {
                 &::before {
-                    content: "\f0f6";
-                    font-family: 'fontawesome';
+                    content: "xls";
                     margin-right: 8px;
+                    font-weight:bold;
                 }
             }
         }
@@ -2423,6 +2438,7 @@ body.noscroll {
         letter-spacing: 0.05em;
         color: $text;
         width: auto;
+        min-width:none;
         outline: none;
         height: 50px;
         line-height: 50px;
