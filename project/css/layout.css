@@ -861,7 +861,7 @@ body.noscroll {
   text-align: left;
   display: none;
   border: 1px solid #ddd;
-  border-top: 4px solid #e6290f;
+  border-top: 2px solid #e6290f;
   -webkit-box-shadow: 1px 0 2px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 1px 0 2px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 0 2px rgba(0, 0, 0, 0.1);
@@ -2172,8 +2172,8 @@ body.noscroll {
   width: 100%;
   top: 54px;
   left: 0;
-  border: 1px solid #ddd;
-  background: #f8f8f8;
+  border: 1px solid #bbb;
+  background: #ddd;
   padding: 25px;
   text-align: left;
   display: none;

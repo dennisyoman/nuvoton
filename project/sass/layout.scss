@@ -820,7 +820,7 @@ body.noscroll {
                     text-align: left;
                     display: none;
                     border: 1px solid #ddd;
-                    border-top: 4px solid $main;
+                    border-top: 2px solid $main;
 
                     @include box-shadow(1px 0 2px rgba(0, 0, 0, 0.1));
 
@@ -2069,8 +2069,8 @@ body.noscroll {
                             width:100%;
                             top:54px;
                             left:0;
-                            border:1px solid #ddd;
-                            background:$gray;
+                            border:1px solid #bbb;
+                            background:#ddd;
                             padding: $gap2;
                             text-align:left;
                             display: none;
