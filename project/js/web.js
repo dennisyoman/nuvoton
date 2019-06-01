@@ -194,6 +194,17 @@ $(document).ready(
             });
         }
 
+        //sticky
+        $('.sticker').each(function(){
+            var $header = $(this);
+            if($header.attr("top") =="" || $header.attr("top")==null){
+                $header.attr("top",$header.offset().top);
+            }
+            if($header.attr("itop") =="" || $header.attr("itop")==null){
+                $header.attr("itop",$header.offset().top);
+            }
+        });
+
 
         //scroll
         $(window).scroll(function() {
@@ -415,8 +426,29 @@ function is_iPhone_or_iPad(){
     );
 }
 
+        
 function scrollFn() {
+    //sticky
+    $('.sticker').each(function(){
+    var $window = $(window),
+        $header = $(this),
+        headerOffsetTop = parseInt($header.attr("itop")),
+        headerStickTop = parseInt($header.attr("top")),
+        headerContainerBottom = $header.parent().offset().top+$header.parent().height()-$header.height()*2;
 
+        if ($window.scrollTop() > headerOffsetTop-$header.height()*2 && $window.scrollTop()<headerContainerBottom) {
+            
+            var diffW = $header.parent().width() - $header.width();
+            if(diffW<0){
+                $header.width($header.parent().width());
+            }else{
+                $header.css("left",$header.offset().left);
+            }
+            $header.addClass('sticky').css("top",headerStickTop);
+        } else {
+            $header.removeClass('sticky').attr("style","");
+        }
+  });
 }
 
     
@@ -580,5 +612,4 @@ function bgImg(){
 
 window.onload = function(){
     bgImg();
-    $(".sticker").sticky({topSpacing:100,zIndex:10,center:true});
 };

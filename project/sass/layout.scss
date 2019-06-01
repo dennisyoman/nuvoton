@@ -1911,6 +1911,17 @@ body.noscroll {
             border: 1px solid #ddd;
             border-top: 2px solid $main;
             margin-top: -30px;
+            //max-width: none;
+
+
+            &.sticky{
+                margin-top:0;
+                position:fixed;
+                z-index:10;
+                @media screen and (max-width: $mobile) {
+                    margin-top:-13px;
+                }
+            }
 
             @media screen and (max-width: $mobile) {
                 border-left: none;
