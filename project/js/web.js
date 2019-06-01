@@ -430,11 +430,12 @@ function is_iPhone_or_iPad(){
 function scrollFn() {
     //sticky
     $('.sticker').each(function(){
+        console.log($(this));
     var $window = $(window),
         $header = $(this),
         headerOffsetTop = parseInt($header.attr("itop")),
         headerStickTop = parseInt($header.attr("top")),
-        headerContainerBottom = $header.parent().offset().top+$header.parent().height()-$header.height()*2;
+        headerContainerBottom = $header.parent().offset().top+$header.parent().height()-$header.height();
 
         if ($window.scrollTop() > headerOffsetTop-$header.height()*2 && $window.scrollTop()<headerContainerBottom) {
             
