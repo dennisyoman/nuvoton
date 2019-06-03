@@ -1836,7 +1836,7 @@ body.noscroll {
             background: $gray;
 
             > div {
-                padding: $gap2;
+                padding: $gap2 $gap;
                 padding-bottom: $gap2 * 2;
                 padding-right: 70px;
                 max-width: $maxW;
@@ -1870,6 +1870,45 @@ body.noscroll {
                     &:hover, &:focus {
                         background: $main;
                         color: #fff;
+
+                        &.list {
+                            background: none;
+                            color: $main;
+                        }
+                    }
+
+                    &.list {
+                        border: none;
+                        color: $third;
+                        border-right: 1px solid $third;
+
+                        @include border-radius(0);
+
+                        font-size: 18px;
+                        line-height: 1;
+                        margin-top: 4px;
+
+                        &:last-child {
+                            border: none;
+                        }
+
+                        &.type1 {
+                            &::before {
+                                content: "\f0ca";
+                                font-family: 'fontawesome';
+                            }
+                        }
+
+                        &.type2 {
+                            &::before {
+                                content: "\f00a";
+                                font-family: 'fontawesome';
+                            }
+                        }
+
+                        &.selected {
+                            color: $main;
+                        }
                     }
 
                     &.spec {
@@ -1907,10 +1946,126 @@ body.noscroll {
             }
         }
 
+        .filter_container {
+            border: 1px solid #ddd;
+
+            @include box;
+
+            background: #fff;
+
+            //max-width:none;
+            margin-top: -30px;
+
+            > div {
+                //max-width:$maxW;
+                //margin:0 auto;
+                //text-align: right;
+           
+            }
+
+            //max-width: none;
+
+            &.sticky {
+                margin-top: 0;
+                position: fixed;
+                z-index: 10;
+
+                @media screen and (max-width: $mobile) {
+                    margin-top: -13px;
+                }
+            }
+
+            .advancedSearch {
+                margin: 10px;
+
+                @media screen and (max-width: $mobile) {
+                    max-width: none;
+                }
+            }
+
+            span {
+                float: right;
+                margin: 10px;
+                margin-right: 50px;
+
+                @media screen and (max-width: $mobile) {
+                    margin-right: 10px;
+                }
+
+                a {
+                    display: inline-block;
+                    font-size: 14px;
+                    color: $main;
+                    text-decoration: none;
+                    padding: 0 15px;
+                    line-height: 28px;
+                    border: 1px solid $main;
+
+                    @include border-radius(5px);
+                    @include transition(all, 0.3s);
+
+                    &:hover, &:focus {
+                        background: $main;
+                        color: #fff;
+
+                        &.list {
+                            background: none;
+                            color: $main;
+                        }
+                    }
+
+                    &.list {
+                        border: none;
+                        color: $third;
+                        border-right: 1px solid $third;
+
+                        @include border-radius(0);
+
+                        font-size: 18px;
+                        line-height: 1;
+                        margin-top: 4px;
+
+                        &:last-child {
+                            border: none;
+                        }
+
+                        &.type1 {
+                            &::before {
+                                content: "\f0ca";
+                                font-family: 'fontawesome';
+                            }
+                        }
+
+                        &.type2 {
+                            &::before {
+                                content: "\f00a";
+                                font-family: 'fontawesome';
+                            }
+                        }
+
+                        &.selected {
+                            color: $main;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: $mobile) {
+                border-left: none;
+                border-right: none;
+                margin-top: 0px;
+
+                .advancedSearch {
+                    margin: 10px auto;
+                }
+            }
+        }
+
         .tab_container {
             border: 1px solid #ddd;
             border-top: 2px solid $main;
             margin-top: -30px;
+
             @include box;
 
             //max-width: none;
@@ -1942,7 +2097,7 @@ body.noscroll {
 
                 > ul {
                     white-space: nowrap;
-                    position:relative;
+                    position: relative;
 
                     > li {
                         display: inline-block;
@@ -1952,10 +2107,10 @@ body.noscroll {
                             > a {
                                 color: $main;
                                 border-bottom: 4px solid $main;
-                            &::before {
-                                @include opacity(1);
-                            }
-                                
+
+                                &::before {
+                                    @include opacity(1);
+                                }
                             }
                         }
 
@@ -1978,6 +2133,7 @@ body.noscroll {
                                 content: "\f13a";
                                 font-family: 'fontawesome';
                                 margin-right: 5px;
+
                                 @include opacity(0);
                             }
 
@@ -1990,45 +2146,43 @@ body.noscroll {
                             @include box;
                         }
 
-
-
                         ul {
-                            
                             margin: 0 auto;
+
                             @include box;
-                            text-align:center;
+
+                            text-align: center;
 
                             li {
-                                display:inline-block;
+                                display: inline-block;
                                 white-space: nowrap;
                                 padding: 5px 0;
-                                float:left;
+                                float: left;
 
                                 @include box;
-                                
-                                
-                                
+
                                 &.has-children {
-                                    position:relative;
-                                    width:30%;
-                                    min-width:none;
-                                    margin-right:$gap2;
-                                    margin-bottom:$gap2;
+                                    position: relative;
+                                    width: 30%;
+                                    min-width: none;
+                                    margin-right: $gap2;
+                                    margin-bottom: $gap2;
 
                                     @media screen and (max-width: $mobile) {
-                                        width:100%;
+                                        width: 100%;
                                     }
-                                    
-                                    
-                                    > a{
-                                        color:$main;
-                                        display:block;
-                                        border-left:2px solid $main;
+
+                                    > a {
+                                        color: $main;
+                                        display: block;
+                                        border-left: 2px solid $main;
+
                                         //padding-bottom:10px;
-                                        margin-bottom:10px;
+                                        margin-bottom: 10px;
                                         text-decoration: none;
                                     }
                                 }
+
                                 a {
                                     font-size: 14px;
                                     line-height: 14px;
@@ -2036,7 +2190,6 @@ body.noscroll {
                                     margin-right: $gap2;
                                     color: $text;
                                     display: inline-block;
-                                    
 
                                     @include box;
 
@@ -2045,7 +2198,6 @@ body.noscroll {
                                     span {
                                         margin-left: 5px;
                                         color: $third;
-                                        
 
                                         &::before {
                                             content: "(";
@@ -2055,36 +2207,35 @@ body.noscroll {
                                             content: ")";
                                         }
                                     }
-                                    
                                 }
                             }
 
-                            &::after{
+                            &::after {
                                 @include clear;
                             }
                         }
 
-                        >ul{
-                            position:absolute;
-                            width:100%;
-                            top:54px;
-                            left:0;
-                            border:1px solid #bbb;
-                            background:#ddd;
+                        > ul {
+                            position: absolute;
+                            width: 100%;
+                            top: 54px;
+                            left: 0;
+                            border: 1px solid #bbb;
+                            background: #ddd;
                             padding: $gap2;
-                            text-align:left;
+                            text-align: left;
                             display: none;
+
                             @include box;
-                            float:left !important;
+
+                            float: left !important;
 
                             @media screen and (max-width: $mobile) {
-                                top:44px;
+                                top: 44px;
                             }
 
-
-                            ul{
-                                display:block;
-                                
+                            ul {
+                                display: block;
                             }
                         }
                     }
@@ -2259,13 +2410,151 @@ body.noscroll {
             }
         }
 
+        .list {
+            ul {
+                &.type1 {
+                    li {
+                        padding: 10px;
+                        display: block;
+                        border:none ;
+                        border-bottom: 1px solid #eee;
+                        vertical-align: top;
+
+                        &::after{
+                            @include clear;
+                        }
+
+                        &:nth-child(even){
+                            background:$gray;
+                        }
+                    }
+
+                    img {
+                        width: 120px;
+                        height: auto;
+                        margin-bottom: 0;
+                        border: 1px solid #eee;
+                        float:left;
+                    }
+
+                    h3{
+                        margin-left:120px;
+                        margin-bottom: 10px;
+                    }
+                    p{
+                        margin-left:120px;
+                        max-height: 41px;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                    }
+                }
+
+                &.type2 {
+                    li {
+                        display: inline-block;
+                        width: 30%;
+                        margin: 1%;
+
+                        @media screen and (max-width: $mobile) {
+                            display: block;
+                            width: 90%;
+                            margin:3% auto;
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        margin-bottom: 20px;
+                    }
+
+                    p{
+                        display:none;
+                    }
+
+                    h3{
+                        text-align: center;
+                    }
+                }
+
+                li {
+                    background: #fff;
+                    border: 1px solid #eee;
+
+                    @include box;
+
+                    //height: 400px !important;
+                    padding-bottom: 10px;
+
+                    @media screen and (max-width: $mobile) {
+                        //height: 380px !important;
+                    }
+
+                    h3 {
+                        color: $main;
+                        line-height: 1;
+                        font-size: 18px;
+                        padding: 0 20px;
+                        margin-bottom: 20px;
+                        display: block;
+                        display: -webkit-box;
+                        max-height: 18px;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    p {
+                        color: $third;
+                        line-height: 21px;
+                        font-size: 14px;
+                        padding: 0 20px;
+                        display: block;
+                        display: -webkit-box;
+                        max-height: 63px;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        @include transition(all, 0.3s);
+                    }
+
+                    a {
+                        text-decoration: none;
+                    }
+
+                    &:hover {
+                        p {
+                            color: $text;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: $mobile) {
+                padding:5px;
+            }
+        }
+
         .article {
             color: $text;
+
+            h2 {
+                color: $main;
+
+                //font-weight: bold;
+                font-size: 22px;
+                line-height: 1.5;
+                margin-bottom: 1em;
+            }
 
             h3 {
                 color: #000;
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 18px;
                 line-height: 1.5;
                 margin-bottom: 1em;
             }
@@ -2274,6 +2563,17 @@ body.noscroll {
                 font-size: 16px;
                 line-height: 1.5;
                 margin-bottom: 1em;
+            }
+
+            ul {
+                list-style: decimal outside;
+
+                li {
+                    margin-left: 2em;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    margin-bottom: 1em;
+                }
             }
         }
 
@@ -2662,7 +2962,7 @@ body.noscroll {
 
     @media screen and (max-width: $mobile) {
         height: 40px;
-        max-width: 320px;
+        //max-width: 320px;
 
         input[type=text] {
             height: 40px;
@@ -2674,7 +2974,10 @@ body.noscroll {
             height: 40px;
             line-height: 40px;
             padding: 0 5px;
-            font-size: 14px;
+            padding-right:14px;
+            font-size: 15px;
+            background-position:center right 5px;
+            background-size:5px 4px;
         }
 
         input[type=submit] {
