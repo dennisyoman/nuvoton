@@ -118,15 +118,21 @@ $(document).ready(
                 $(this).click(function() {
                     $(this).addClass("selected").siblings(".selected").removeClass("selected");
                     $(this).children("ul").slideDown("fast");
-                })
-                $(this).click(function() {
-                    $(this).addClass("selected").siblings(".selected").removeClass("selected");
                     $(this).children("ul").click(function(e) {
                         e.stopPropagation();
                         $(this).slideUp("fast");
                     })
                 })
             }).eq(0).addClass("selected");
+        }
+
+        //filter
+        if ($(".filter_container").length > 0) {
+            $(".filter_container > div > span > a").click(function(e) {
+                e.preventDefault();
+                $(this).addClass("selected").siblings(".selected").removeClass("selected");
+                $(".section.list > ul").removeClass().addClass($(this).attr("typ"));
+            }).eq(0).click();
         }
 
         //gallery
@@ -143,6 +149,11 @@ $(document).ready(
                     $(this).parent().toggleClass("active");
                 })
             }) 
+        }
+
+        //datepicker
+        if ($(".datepicker").length > 0) {
+            $( ".datepicker" ).datepicker();
         }
 
         //table

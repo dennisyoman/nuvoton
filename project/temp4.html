@@ -32,6 +32,7 @@
     <script src="js/hammer.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script type="text/javascript" src="js/web.js"></script>
+   
     
     
 </head>
@@ -790,28 +791,43 @@
 
                 <div class="filter_container sticker" top="98">
                     <div>
-                        <span><a class="list type1 selected" href="#"></a><a class="list type2" href="#"></a></span>
+                        <!-- 排列模式  -->
+                        <span>
+                            <a typ="type_grid" class="list grid"></a>
+                            <a typ="type_column" class="list column"></a>
+                        </span>
+
+                        <!-- 搜尋模式  -->
                         <form id="advancedSearch" method="post" class="advancedSearch" action="">
-                            <select id="asc">
+                            <select id="xxx">
                                 <option value="0">可攜式設備</option>
                                 <option value="1">音訊/視訊</option>
                                 <option value="2">消費性產品</option>
                             </select>
                             <input type="text" id="as" placeholder="請輸入應用關鍵字"/>
+
                             <input type="submit" value=""/>
                         </form>
+
+                        <!-- 搜尋模式  -->
+
+
 
                     </div>
                 </div>
 
 
                 <div class="section list">
-                    <ul class="type2">
+                    <ul>
                         <li>
                             <a href="#">
                                 <img src="images/pro.jpg"/>
                                 <h3>工業控制</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="extrainfo">
+                                    <span>M487系列</span>
+                                    <span>2019/01/08</span>
+                                </div>
                             </a>
                         </li>
                         <li>
@@ -819,6 +835,10 @@
                                 <img src="images/pro.jpg"/>
                                 <h3>低耗能</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="extrainfo">
+                                    <span>M487系列</span>
+                                    <span>2019/01/08</span>
+                                </div>
                             </a>
                         </li>
                         <li>
@@ -826,6 +846,10 @@
                                 <img src="images/pro.jpg"/>
                                 <h3>消費性電子</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="extrainfo">
+                                    <span>M487系列</span>
+                                    <span>2019/01/08</span>
+                                </div>
                             </a>
                         </li>
                         <li>
@@ -833,6 +857,10 @@
                                 <img src="images/pro.jpg"/>
                                 <h3>物聯網安全</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="extrainfo">
+                                    <span>M487系列</span>
+                                    <span>2019/01/08</span>
+                                </div>
                             </a>
                         </li>
                         <li>
@@ -840,6 +868,10 @@
                                 <img src="images/pro.jpg"/>
                                 <h3>車用電子</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="extrainfo">
+                                    <span>M487系列</span>
+                                    <span>2019/01/08</span>
+                                </div>
                             </a>
                         </li>
                     </ul>

@@ -1268,7 +1268,7 @@ body.noscroll {
     @media screen and (max-width: $mobile) {
         padding: 0px 15px;
         line-height: 25px;
-        background: $gray;
+        //background: $gray;
 
         a {
             line-height: 25px;
@@ -1582,6 +1582,23 @@ body.noscroll {
         }
     }
 
+    &.noaside {
+        .aside {
+            display:none;
+        }
+        .main {
+            width: 100%;
+
+            .top{
+                >div{
+                    @media screen and (max-width: $mobile) {
+                        padding-left:$gap2;
+                    }
+                }
+            }
+        }
+    }
+
     .aside {
         background: #fff;
         border-right: 1px solid #ccc;
@@ -1707,6 +1724,16 @@ body.noscroll {
 
             li {
                 border-bottom: 1px solid #eee;
+
+                &.selected{
+                    @media screen and (min-width: $mobile) {
+                        background:$main;
+
+                        a{
+                            color:#fff;
+                        }
+                    }
+                }
 
                 a {
                     font-size: 14px;
@@ -1870,45 +1897,6 @@ body.noscroll {
                     &:hover, &:focus {
                         background: $main;
                         color: #fff;
-
-                        &.list {
-                            background: none;
-                            color: $main;
-                        }
-                    }
-
-                    &.list {
-                        border: none;
-                        color: $third;
-                        border-right: 1px solid $third;
-
-                        @include border-radius(0);
-
-                        font-size: 18px;
-                        line-height: 1;
-                        margin-top: 4px;
-
-                        &:last-child {
-                            border: none;
-                        }
-
-                        &.type1 {
-                            &::before {
-                                content: "\f0ca";
-                                font-family: 'fontawesome';
-                            }
-                        }
-
-                        &.type2 {
-                            &::before {
-                                content: "\f00a";
-                                font-family: 'fontawesome';
-                            }
-                        }
-
-                        &.selected {
-                            color: $main;
-                        }
                     }
 
                     &.spec {
@@ -1922,7 +1910,7 @@ body.noscroll {
             }
 
             @media screen and (max-width: $mobile) {
-                background: #fff;
+                //background: #fff;
 
                 > div {
                     padding: $gap2;
@@ -1948,18 +1936,28 @@ body.noscroll {
 
         .filter_container {
             border: 1px solid #ddd;
+            
 
             @include box;
 
             background: #fff;
 
-            //max-width:none;
+            &.fullwidth{
+                max-width:none;
+                border-width:1px 0 1px 0;
+            }
+
+            
+            //min-height:60px;
             margin-top: -30px;
 
             > div {
                 //max-width:$maxW;
                 //margin:0 auto;
                 //text-align: right;
+                &::after{
+                    @include clear;
+                }
            
             }
 
@@ -2000,17 +1998,18 @@ body.noscroll {
                     padding: 0 15px;
                     line-height: 28px;
                     border: 1px solid $main;
+                    cursor:pointer;
 
                     @include border-radius(5px);
                     @include transition(all, 0.3s);
 
-                    &:hover, &:focus {
+                    &:hover{
                         background: $main;
                         color: #fff;
 
                         &.list {
                             background: none;
-                            color: $main;
+                            color: $text;
                         }
                     }
 
@@ -2029,14 +2028,14 @@ body.noscroll {
                             border: none;
                         }
 
-                        &.type1 {
+                        &.column {
                             &::before {
                                 content: "\f0ca";
                                 font-family: 'fontawesome';
                             }
                         }
 
-                        &.type2 {
+                        &.grid {
                             &::before {
                                 content: "\f00a";
                                 font-family: 'fontawesome';
@@ -2411,14 +2410,16 @@ body.noscroll {
         }
 
         .list {
+            padding:$gap 0;
             ul {
-                &.type1 {
+                &.type_column {
                     li {
                         padding: 10px;
                         display: block;
                         border:none ;
                         border-bottom: 1px solid #eee;
                         vertical-align: top;
+                        position:relative;
 
                         &::after{
                             @include clear;
@@ -2429,52 +2430,91 @@ body.noscroll {
                         }
                     }
 
+                    .extrainfo{
+                        float:right;
+                        position:absolute;
+                        top:0;
+                        right:0;
+                        margin-left:100px;
+                        span{
+                            margin-left:10px;
+                        }
+
+                        @media screen and (max-width: $mobile) {
+                            position:static;
+                        }
+                    }
+
                     img {
-                        width: 120px;
+                        width: 100px;
                         height: auto;
                         margin-bottom: 0;
                         border: 1px solid #eee;
                         float:left;
                     }
 
+                    .gmap{
+                        width:100px;
+                        padding-top:100px;
+                        float:left;
+                    }
+
+                    .contact{
+                        margin-left:100px;
+                    }
+
                     h3{
-                        margin-left:120px;
+                        margin-left:100px;
                         margin-bottom: 10px;
                     }
                     p{
-                        margin-left:120px;
+                        margin-left:100px;
                         max-height: 41px;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 2;
                     }
                 }
 
-                &.type2 {
+                &.type_grid {
                     li {
                         display: inline-block;
-                        width: 30%;
+                        width: 22%;
                         margin: 1%;
+                        position:relative;
+                        @media screen and (max-width: 1000px) {
+                            width: 30%;
+                        }
 
                         @media screen and (max-width: $mobile) {
+                            width: 47%;
+                        }
+
+                        @media screen and (max-width: 500px) {
                             display: block;
                             width: 90%;
                             margin:3% auto;
+                        }
+
+                        &.shop{
+                            background:$main;
+                            h3{
+                                text-align: center;
+                                
+                                color:#fff;
+                            }
                         }
                     }
 
                     img {
                         width: 100%;
                         height: auto;
-                        margin-bottom: 20px;
+                        margin: 0 auto 10px;
+                        border-bottom:1px solid #ddd;
                     }
 
-                    p{
-                        display:none;
-                    }
+                    
 
-                    h3{
-                        text-align: center;
-                    }
+
                 }
 
                 li {
@@ -2486,8 +2526,83 @@ body.noscroll {
                     //height: 400px !important;
                     padding-bottom: 10px;
 
-                    @media screen and (max-width: $mobile) {
-                        //height: 380px !important;
+                    &.shop{
+                        h3{
+                            &::before {
+                                content: "\f07a";
+                                font-family: 'fontawesome';
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+
+                    .gmap{
+                        width:100%;
+                        height:0;
+                        padding-top:100%;
+                        position:relative;
+
+                        @media screen and (max-width: $mobile) {
+                            padding-top:60%;
+                        }
+
+                        iframe{
+                            position:absolute;
+                            top:0;
+                            left:0;
+                            width:100% !important;
+                            height:100% !important;
+                        }
+                    }
+
+                    .contact{
+                        padding: 0 20px;
+                        margin-top:8px;
+                        font-size:13px;
+                        color:$third;
+                        line-height:1.5;
+
+                        span{
+                            display:block;
+                            margin-bottom:.3em;
+
+                            &.add{
+                                &::before {
+                                    content: "\f041";
+                                    font-family: 'fontawesome';
+                                    margin-right: 5px;
+                                    color:$main;
+                                }
+                            }
+                            &.tel{
+                                &::before {
+                                    content: "\f095";
+                                    font-family: 'fontawesome';
+                                    margin-right: 5px;
+                                    color:$main;
+                                }
+                            }
+
+                        }
+
+                    }
+
+                    .extrainfo{
+                        font-size:12px;
+                        color:$third;
+                        padding: 0 20px;
+                        margin-top:20px;
+                        @include box;
+                        span{
+                            &:last-child{
+                                float:right;
+                            }
+                        }
+
+                        &::after{
+                            @include clear;
+                        }
                     }
 
                     h3 {
@@ -2495,7 +2610,7 @@ body.noscroll {
                         line-height: 1;
                         font-size: 18px;
                         padding: 0 20px;
-                        margin-bottom: 20px;
+                        margin: 8px 0;
                         display: block;
                         display: -webkit-box;
                         max-height: 18px;
@@ -2506,7 +2621,7 @@ body.noscroll {
                     }
 
                     p {
-                        color: $third;
+                        color: $text;
                         line-height: 21px;
                         font-size: 14px;
                         padding: 0 20px;
@@ -2517,8 +2632,9 @@ body.noscroll {
                         -webkit-line-clamp: 3;
                         overflow: hidden;
                         text-overflow: ellipsis;
+                        margin: 8px 0;
 
-                        @include transition(all, 0.3s);
+                        @include box;
                     }
 
                     a {
@@ -2536,6 +2652,147 @@ body.noscroll {
 
             @media screen and (max-width: $mobile) {
                 padding:5px;
+            }
+        }
+
+        .form{
+            font-size:15px;
+            color:$text;
+            line-height: 1.5;
+
+            hr{
+                @include opacity(.3);
+            }
+
+
+            .divide2{
+                width:40%;
+                margin-right:10%;
+                float:left;
+            }
+            @media screen and (max-width: $mobile) {
+                .divide2{
+                    width:100%;
+                    margin-right:0;
+                    float:none;
+                }
+            }
+            &::after{
+                @include clear;
+            }
+            .group{
+                margin-bottom:1em;
+                max-width:400px;
+                h3{
+                    margin-bottom:.5em;
+                }
+
+                > span{
+                    display:flex;
+
+                    select{
+                        width:auto;
+                       flex: 0 0 auto;
+                       background-color:#eee;
+                    }
+                }
+            }
+            h3{
+                font-size:14px;
+                color:$text;
+                line-height: 28px;
+                margin-bottom:1em;
+                span{
+                    color:$main;
+                }
+            }
+            input[type=text] {
+                font-size: 15px;
+                margin: 0;
+                letter-spacing: 0;
+                color: $text;
+                letter-spacing: 0.05em;
+                height: 40px;
+                line-height: 40px;
+                width: 100%;
+                display: block;
+                background: #fff;
+                min-width: 1px;
+                padding: 0 10px;
+                border: 1px solid #ccc;
+
+                @include box;
+            }
+
+            select, option {
+                display: block;
+                margin: 0;
+                border: 1px solid #ccc;
+                overflow: hidden;
+                text-align: center;
+                letter-spacing: 0.05em;
+                color: $text;
+                width: 100%;
+                min-width: none;
+                outline: none;
+                height: 40px;
+                line-height: 40px;
+                background: #fff url("../images/btn_dropdown.png") no-repeat center right 10px;
+                background-size: 10px 8px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                cursor: pointer;
+                padding: 0 15px;
+                font-size: 15px;
+                position: relative;
+                padding-right: 30px;
+
+                @include box;
+
+                //@include border-radius(8px 0 0 8px);
+
+                &::-ms-expand {
+                    /* for IE 11 */
+                    display: none;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            textarea{
+                width:100%;
+                font-size: 15px;
+                line-height: 1.5;
+                height:120px;
+                padding: 15px;
+                color:$text;
+            }
+
+            option {
+                background: #fff;
+            }
+
+            input[type=submit],input[type=reset]{
+                background:$main;
+                color:#fff;
+                line-height: 30px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding:0 15px;
+            }
+
+            input[type=reset]{
+                background:none;
+                color:$main;
+                line-height: 30px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding:0 15px;
             }
         }
 
@@ -2643,6 +2900,13 @@ body.noscroll {
     }
 }
 
+
+.datepicker{
+    background-image: url("../images/btn_datepicker.png") !important;
+    background-repeat:no-repeat !important;
+    background-position:center right 10px !important;
+    background-size: 20px 20px !important;
+}
 .table {
     h3 {
         font-size: 14px;
@@ -2863,12 +3127,65 @@ body.noscroll {
     height: 50px;
     width: 90%;
     max-width: 400px;
+    @include box;
 
     //@include border-radius(8px);
     //@include box-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
 
     display: flex;
     position: relative;
+    
+
+
+    &.period{
+        max-width:none;
+        width:auto;
+        position:relative;
+
+        .perioddiv{
+            width: 100%;
+            line-height: 50px;
+            font-size:13px;
+            color:$third;
+            white-space: nowrap;
+            display: flex;
+            margin:0 10px;
+            background:$gray;
+
+            input[type=text] {
+                line-height: 30px;
+                height: 30px;
+                margin:10px;
+                font-size:14px;
+                @include border-radius(0px);
+            }
+            input[type=reset]  {
+                display: inline-block;
+                width: 60px;
+                height: 100%;
+                color:$main;
+                background:$gray;
+                flex: 0 0 60px;
+                font-size:13px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                //@include border-radius(0 8px 8px 0);
+            }
+
+
+        }
+
+        @media screen and (max-width: $mobile) {
+            width:90%;
+            .perioddiv{
+                display:none;
+            }
+        }
+
+    }
+
+
 
     input[type=text] {
         font-size: 15px;
@@ -2931,7 +3248,7 @@ body.noscroll {
         background: #fff;
     }
 
-    input[type=submit] {
+    input[type=submit]{
         display: inline-block;
         width: 50px;
         height: 50px;
