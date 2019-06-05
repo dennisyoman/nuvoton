@@ -3609,6 +3609,18 @@ body.noscroll {
     }
 }
 
+.ui-datepicker{
+    width:340px !important;
+    font-size:18px !important;
+    @include box;
+
+    @media screen and (max-width: $mobile) {
+        width:280px !important;
+        left:calc(50vw - 140px) !important;
+    }
+
+}
+
 ::-webkit-scrollbar {}
 
 ::-webkit-input-placeholder {

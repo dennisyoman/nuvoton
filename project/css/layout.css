@@ -3779,25 +3779,41 @@ body.noscroll {
   }
 }
 
-/* line 3614, ../sass/layout.scss */
+/* line 3612, ../sass/layout.scss */
+.ui-datepicker {
+  width: 340px !important;
+  font-size: 18px !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 850px) {
+  /* line 3612, ../sass/layout.scss */
+  .ui-datepicker {
+    width: 280px !important;
+    left: calc(50vw - 140px) !important;
+  }
+}
+
+/* line 3626, ../sass/layout.scss */
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #aaa;
 }
 
-/* line 3619, ../sass/layout.scss */
+/* line 3631, ../sass/layout.scss */
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: #aaa;
 }
 
-/* line 3624, ../sass/layout.scss */
+/* line 3636, ../sass/layout.scss */
 :-ms-input-placeholder {
   /* IE 10+ */
   color: #aaa;
 }
 
-/* line 3629, ../sass/layout.scss */
+/* line 3641, ../sass/layout.scss */
 :-moz-placeholder {
   /* Firefox 18- */
   color: #aaa;
