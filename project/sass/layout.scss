@@ -1268,6 +1268,7 @@ body.noscroll {
     @media screen and (max-width: $mobile) {
         padding: 0px 15px;
         line-height: 25px;
+
         //background: $gray;
 
         a {
@@ -1584,15 +1585,16 @@ body.noscroll {
 
     &.noaside {
         .aside {
-            display:none;
+            display: none;
         }
+
         .main {
             width: 100%;
 
-            .top{
-                >div{
+            .top {
+                > div {
                     @media screen and (max-width: $mobile) {
-                        padding-left:$gap2;
+                        padding-left: $gap2;
                     }
                 }
             }
@@ -1725,12 +1727,12 @@ body.noscroll {
             li {
                 border-bottom: 1px solid #eee;
 
-                &.selected{
+                &.selected {
                     @media screen and (min-width: $mobile) {
-                        background:$main;
+                        background: $main;
 
-                        a{
-                            color:#fff;
+                        a {
+                            color: #fff;
                         }
                     }
                 }
@@ -1936,18 +1938,16 @@ body.noscroll {
 
         .filter_container {
             border: 1px solid #ddd;
-            
 
             @include box;
 
             background: #fff;
 
-            &.fullwidth{
-                max-width:none;
-                border-width:1px 0 1px 0;
+            &.fullwidth {
+                max-width: none;
+                border-width: 1px 0 1px 0;
             }
 
-            
             //min-height:60px;
             margin-top: -30px;
 
@@ -1955,10 +1955,9 @@ body.noscroll {
                 //max-width:$maxW;
                 //margin:0 auto;
                 //text-align: right;
-                &::after{
+                &::after {
                     @include clear;
                 }
-           
             }
 
             //max-width: none;
@@ -1998,12 +1997,12 @@ body.noscroll {
                     padding: 0 15px;
                     line-height: 28px;
                     border: 1px solid $main;
-                    cursor:pointer;
+                    cursor: pointer;
 
                     @include border-radius(5px);
                     @include transition(all, 0.3s);
 
-                    &:hover{
+                    &:hover {
                         background: $main;
                         color: #fff;
 
@@ -2290,6 +2289,45 @@ body.noscroll {
             }
         }
 
+        .pager {
+            width: 100%;
+            text-align: center;
+            margin:20px auto;
+
+            ul {
+                li {
+                    display: inline-block;
+
+                    a {
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        font-size: 14px;
+                        color: #666;
+                        margin: 1px;
+                        text-decoration: none;
+                        border:1px solid #666;
+                    }
+
+                    &:hover{
+                        a{
+                            background:#eee;
+                        }
+                    }
+
+                    &.selected{
+                        a{
+                            background:$main;
+                            color:#fff;
+                            border-color:$main;
+                        }
+                    }
+                }
+            }
+        }
+
         .section {
             position: relative;
             margin: 0px auto 50px;
@@ -2410,38 +2448,40 @@ body.noscroll {
         }
 
         .list {
-            padding:$gap 0;
+            padding: $gap 0;
+
             ul {
                 &.type_column {
                     li {
                         padding: 10px;
                         display: block;
-                        border:none ;
+                        border: none;
                         border-bottom: 1px solid #eee;
                         vertical-align: top;
-                        position:relative;
+                        position: relative;
 
-                        &::after{
+                        &::after {
                             @include clear;
                         }
 
-                        &:nth-child(even){
-                            background:$gray;
+                        &:nth-child(even) {
+                            background: $gray;
                         }
                     }
 
-                    .extrainfo{
-                        float:right;
-                        position:absolute;
-                        top:0;
-                        right:0;
-                        margin-left:100px;
-                        span{
-                            margin-left:10px;
+                    .extrainfo {
+                        float: right;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        margin-left: 100px;
+
+                        span {
+                            margin-left: 10px;
                         }
 
                         @media screen and (max-width: $mobile) {
-                            position:static;
+                            position: static;
                         }
                     }
 
@@ -2450,25 +2490,26 @@ body.noscroll {
                         height: auto;
                         margin-bottom: 0;
                         border: 1px solid #eee;
-                        float:left;
+                        float: left;
                     }
 
-                    .gmap{
-                        width:100px;
-                        padding-top:100px;
-                        float:left;
+                    .gmap {
+                        width: 100px;
+                        padding-top: 100px;
+                        float: left;
                     }
 
-                    .contact{
-                        margin-left:100px;
+                    .contact {
+                        margin-left: 100px;
                     }
 
-                    h3{
-                        margin-left:100px;
+                    h3 {
+                        margin-left: 100px;
                         margin-bottom: 10px;
                     }
-                    p{
-                        margin-left:100px;
+
+                    p {
+                        margin-left: 100px;
                         max-height: 41px;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 2;
@@ -2480,7 +2521,8 @@ body.noscroll {
                         display: inline-block;
                         width: 22%;
                         margin: 1%;
-                        position:relative;
+                        position: relative;
+
                         @media screen and (max-width: 1000px) {
                             width: 30%;
                         }
@@ -2492,15 +2534,15 @@ body.noscroll {
                         @media screen and (max-width: 500px) {
                             display: block;
                             width: 90%;
-                            margin:3% auto;
+                            margin: 3% auto;
                         }
 
-                        &.shop{
-                            background:$main;
-                            h3{
+                        &.shop {
+                            background: $main;
+
+                            h3 {
                                 text-align: center;
-                                
-                                color:#fff;
+                                color: #fff;
                             }
                         }
                     }
@@ -2509,12 +2551,8 @@ body.noscroll {
                         width: 100%;
                         height: auto;
                         margin: 0 auto 10px;
-                        border-bottom:1px solid #ddd;
+                        border-bottom: 1px solid #ddd;
                     }
-
-                    
-
-
                 }
 
                 li {
@@ -2526,8 +2564,8 @@ body.noscroll {
                     //height: 400px !important;
                     padding-bottom: 10px;
 
-                    &.shop{
-                        h3{
+                    &.shop {
+                        h3 {
                             &::before {
                                 content: "\f07a";
                                 font-family: 'fontawesome';
@@ -2536,71 +2574,71 @@ body.noscroll {
                         }
                     }
 
-
-                    .gmap{
-                        width:100%;
-                        height:0;
-                        padding-top:100%;
-                        position:relative;
+                    .gmap {
+                        width: 100%;
+                        height: 0;
+                        padding-top: 100%;
+                        position: relative;
 
                         @media screen and (max-width: $mobile) {
-                            padding-top:60%;
+                            padding-top: 60%;
                         }
 
-                        iframe{
-                            position:absolute;
-                            top:0;
-                            left:0;
-                            width:100% !important;
-                            height:100% !important;
+                        iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100% !important;
+                            height: 100% !important;
                         }
                     }
 
-                    .contact{
+                    .contact {
                         padding: 0 20px;
-                        margin-top:8px;
-                        font-size:13px;
-                        color:$third;
-                        line-height:1.5;
+                        margin-top: 8px;
+                        font-size: 13px;
+                        color: $third;
+                        line-height: 1.5;
 
-                        span{
-                            display:block;
-                            margin-bottom:.3em;
+                        span {
+                            display: block;
+                            margin-bottom: .3em;
 
-                            &.add{
+                            &.add {
                                 &::before {
                                     content: "\f041";
                                     font-family: 'fontawesome';
                                     margin-right: 5px;
-                                    color:$main;
+                                    color: $main;
                                 }
                             }
-                            &.tel{
+
+                            &.tel {
                                 &::before {
                                     content: "\f095";
                                     font-family: 'fontawesome';
                                     margin-right: 5px;
-                                    color:$main;
+                                    color: $main;
                                 }
                             }
-
                         }
-
                     }
 
-                    .extrainfo{
-                        font-size:12px;
-                        color:$third;
+                    .extrainfo {
+                        font-size: 12px;
+                        color: $third;
                         padding: 0 20px;
-                        margin-top:20px;
+                        margin-top: 20px;
+
                         @include box;
-                        span{
-                            &:last-child{
-                                float:right;
+
+                        span {
+                            &:last-child {
+                                float: right;
                             }
                         }
 
-                        &::after{
+                        &::after {
                             @include clear;
                         }
                     }
@@ -2651,61 +2689,67 @@ body.noscroll {
             }
 
             @media screen and (max-width: $mobile) {
-                padding:5px;
+                padding: 5px;
             }
         }
 
-        .form{
-            font-size:15px;
-            color:$text;
+        .form {
+            font-size: 15px;
+            color: $text;
             line-height: 1.5;
 
-            hr{
-                @include opacity(.3);
+            hr {
+                @include opacity(0.3);
             }
 
-
-            .divide2{
-                width:40%;
-                margin-right:10%;
-                float:left;
+            .divide2 {
+                width: 40%;
+                margin-right: 10%;
+                float: left;
             }
+
             @media screen and (max-width: $mobile) {
-                .divide2{
-                    width:100%;
-                    margin-right:0;
-                    float:none;
+                .divide2 {
+                    width: 100%;
+                    margin-right: 0;
+                    float: none;
                 }
             }
-            &::after{
+
+            &::after {
                 @include clear;
             }
-            .group{
-                margin-bottom:1em;
-                max-width:400px;
-                h3{
-                    margin-bottom:.5em;
+
+            .group {
+                margin-bottom: 1em;
+                max-width: 400px;
+
+                h3 {
+                    margin-bottom: .5em;
                 }
 
-                > span{
-                    display:flex;
+                > span {
+                    display: flex;
 
-                    select{
-                        width:auto;
-                       flex: 0 0 auto;
-                       background-color:#eee;
+                    select {
+                        width: auto;
+                        flex: 0 0 auto;
+                        background-color: #eee;
                     }
                 }
             }
-            h3{
-                font-size:14px;
-                color:$text;
+
+            h3 {
+                font-size: 14px;
+                color: $text;
                 line-height: 28px;
-                margin-bottom:1em;
-                span{
-                    color:$main;
+                margin-bottom: 1em;
+
+                span {
+                    color: $main;
                 }
             }
+
             input[type=text] {
                 font-size: 15px;
                 margin: 0;
@@ -2762,37 +2806,37 @@ body.noscroll {
                 }
             }
 
-            textarea{
-                width:100%;
+            textarea {
+                width: 100%;
                 font-size: 15px;
                 line-height: 1.5;
-                height:120px;
+                height: 120px;
                 padding: 15px;
-                color:$text;
+                color: $text;
             }
 
             option {
                 background: #fff;
             }
 
-            input[type=submit],input[type=reset]{
-                background:$main;
-                color:#fff;
+            input[type=submit], input[type=reset] {
+                background: $main;
+                color: #fff;
                 line-height: 30px;
                 border: none;
                 outline: none;
                 cursor: pointer;
-                padding:0 15px;
+                padding: 0 15px;
             }
 
-            input[type=reset]{
-                background:none;
-                color:$main;
+            input[type=reset] {
+                background: none;
+                color: $main;
                 line-height: 30px;
                 border: none;
                 outline: none;
                 cursor: pointer;
-                padding:0 15px;
+                padding: 0 15px;
             }
         }
 
@@ -2900,13 +2944,13 @@ body.noscroll {
     }
 }
 
-
-.datepicker{
+.datepicker {
     background-image: url("../images/btn_datepicker.png") !important;
-    background-repeat:no-repeat !important;
-    background-position:center right 10px !important;
+    background-repeat: no-repeat !important;
+    background-position: center right 10px !important;
     background-size: 20px 20px !important;
 }
+
 .table {
     h3 {
         font-size: 14px;
@@ -3127,6 +3171,7 @@ body.noscroll {
     height: 50px;
     width: 90%;
     max-width: 400px;
+
     @include box;
 
     //@include border-radius(8px);
@@ -3134,58 +3179,56 @@ body.noscroll {
 
     display: flex;
     position: relative;
-    
 
+    &.period {
+        max-width: none;
+        width: auto;
+        position: relative;
 
-    &.period{
-        max-width:none;
-        width:auto;
-        position:relative;
-
-        .perioddiv{
+        .perioddiv {
             width: 100%;
             line-height: 50px;
-            font-size:13px;
-            color:$third;
+            font-size: 13px;
+            color: $third;
             white-space: nowrap;
             display: flex;
-            margin:0 10px;
-            background:$gray;
+            margin: 0 10px;
+            background: $gray;
 
             input[type=text] {
                 line-height: 30px;
                 height: 30px;
-                margin:10px;
-                font-size:14px;
+                margin: 10px;
+                font-size: 14px;
+
                 @include border-radius(0px);
             }
-            input[type=reset]  {
+
+            input[type=reset] {
                 display: inline-block;
                 width: 60px;
                 height: 100%;
-                color:$main;
-                background:$gray;
+                color: $main;
+                background: $gray;
                 flex: 0 0 60px;
-                font-size:13px;
+                font-size: 13px;
                 border: none;
                 outline: none;
                 cursor: pointer;
+
                 //@include border-radius(0 8px 8px 0);
+           
             }
-
-
         }
 
         @media screen and (max-width: $mobile) {
-            width:90%;
-            .perioddiv{
-                display:none;
+            width: 90%;
+
+            .perioddiv {
+                display: none;
             }
         }
-
     }
-
-
 
     input[type=text] {
         font-size: 15px;
@@ -3248,7 +3291,7 @@ body.noscroll {
         background: #fff;
     }
 
-    input[type=submit]{
+    input[type=submit] {
         display: inline-block;
         width: 50px;
         height: 50px;
@@ -3279,6 +3322,7 @@ body.noscroll {
 
     @media screen and (max-width: $mobile) {
         height: 40px;
+
         //max-width: 320px;
 
         input[type=text] {
@@ -3291,10 +3335,10 @@ body.noscroll {
             height: 40px;
             line-height: 40px;
             padding: 0 5px;
-            padding-right:14px;
+            padding-right: 14px;
             font-size: 15px;
-            background-position:center right 5px;
-            background-size:5px 4px;
+            background-position: center right 5px;
+            background-size: 5px 4px;
         }
 
         input[type=submit] {
@@ -3609,16 +3653,16 @@ body.noscroll {
     }
 }
 
-.ui-datepicker{
-    width:340px !important;
-    font-size:18px !important;
+.ui-datepicker {
+    width: 340px !important;
+    font-size: 18px !important;
+
     @include box;
 
     @media screen and (max-width: $mobile) {
-        width:280px !important;
-        left:calc(50vw - 140px) !important;
+        width: 280px !important;
+        left: calc(50vw - 140px) !important;
     }
-
 }
 
 ::-webkit-scrollbar {}
