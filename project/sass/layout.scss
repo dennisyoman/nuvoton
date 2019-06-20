@@ -1968,15 +1968,38 @@ body.noscroll {
                 z-index: 10;
 
                 @media screen and (max-width: $mobile) {
-                    margin-top: -13px;
+                    margin-top: -13px !important;
                 }
             }
 
             .advancedSearch {
                 margin: 10px;
 
+                &.livesearch {
+                    max-width: none;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+
                 @media screen and (max-width: $mobile) {
                     max-width: none;
+
+                    &.livesearch {
+                        flex-wrap: wrap;
+                        height: auto;
+
+                        select {
+                            flex: 2 1 50%;
+                            margin-bottom:5px;
+                            border:1px solid #ccc;
+                        }
+
+                        input[type="text"] {
+                            width: 100%;
+                        }
+                    }
                 }
             }
 
@@ -2292,7 +2315,7 @@ body.noscroll {
         .pager {
             width: 100%;
             text-align: center;
-            margin:20px auto;
+            margin: 20px auto;
 
             ul {
                 li {
@@ -2308,20 +2331,20 @@ body.noscroll {
                         color: #666;
                         margin: 1px;
                         text-decoration: none;
-                        border:1px solid #666;
+                        border: 1px solid #666;
                     }
 
-                    &:hover{
-                        a{
-                            background:#eee;
+                    &:hover {
+                        a {
+                            background: #eee;
                         }
                     }
 
-                    &.selected{
-                        a{
-                            background:$main;
-                            color:#fff;
-                            border-color:$main;
+                    &.selected {
+                        a {
+                            background: $main;
+                            color: #fff;
+                            border-color: $main;
                         }
                     }
                 }
