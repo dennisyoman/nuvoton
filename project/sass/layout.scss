@@ -2899,12 +2899,13 @@ body.noscroll {
 
             ul {
                 list-style: decimal outside;
+                margin-bottom: 1em;
 
                 li {
                     margin-left: 2em;
                     font-size: 16px;
-                    line-height: 1.8;
-                    margin-bottom: 1em;
+                    line-height: 1.5;
+                    margin-bottom: .3em;
                 }
             }
 
