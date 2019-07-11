@@ -2875,31 +2875,30 @@ body.noscroll {
             color: $text;
 
             h2 {
-                color: $main;
-
+                //color: $main;
                 //font-weight: bold;
-                font-size: 22px;
+                //font-size: 22px;
                 line-height: 1.8;
-                margin-bottom: 1em;
+                //margin-bottom: 1em;
             }
 
             h3 {
-                color: #000;
-                font-weight: bold;
-                font-size: 18px;
+                //color: #000;
+                //font-weight: bold;
+                //font-size: 18px;
                 line-height: 1.8;
-                margin-bottom: 1em;
+                //margin-bottom: 1em;
             }
 
             p {
-                font-size: 16px;
+                //font-size: 16px;
                 line-height: 1.8;
-                margin-bottom: 1em;
+                //margin-bottom: 1em;
             }
 
-            ul {
+            ul,ol {
                 list-style: decimal outside;
-                margin-bottom: 1em;
+                //margin-bottom: 1em;
 
                 li {
                     margin-left: 2em;
