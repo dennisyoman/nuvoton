@@ -5,6 +5,7 @@
 
 html, body, select, option, .modal, input {
     font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', "Helvetica Neue", "Heiti TC","儷黑 Pro", "LiHei Pro","文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica;
+
     //background: #000;
 }
 
@@ -47,13 +48,13 @@ body.noscroll {
     @include box;
 
     .overlay {
-        position:fixed;
-        top:0;
-        left:0;
-        width:100vw;
-        height:100vh;
-        z-index:998;
-        background:rgba(0,0,0,.3);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 998;
+        background: rgba(0, 0, 0, 0.3);
     }
 
     @media screen and (max-width: $mobile) {
@@ -1999,8 +2000,8 @@ body.noscroll {
 
                         select {
                             flex: 2 1;
-                            margin-bottom:5px;
-                            border:1px solid #ccc;
+                            margin-bottom: 5px;
+                            border: 1px solid #ccc;
                         }
 
                         input[type="text"] {
@@ -2878,7 +2879,7 @@ body.noscroll {
 
                 //font-weight: bold;
                 font-size: 22px;
-                line-height: 1.5;
+                line-height: 1.8;
                 margin-bottom: 1em;
             }
 
@@ -2886,13 +2887,13 @@ body.noscroll {
                 color: #000;
                 font-weight: bold;
                 font-size: 18px;
-                line-height: 1.5;
+                line-height: 1.8;
                 margin-bottom: 1em;
             }
 
             p {
                 font-size: 16px;
-                line-height: 1.5;
+                line-height: 1.8;
                 margin-bottom: 1em;
             }
 
@@ -2902,9 +2903,13 @@ body.noscroll {
                 li {
                     margin-left: 2em;
                     font-size: 16px;
-                    line-height: 1.5;
+                    line-height: 1.8;
                     margin-bottom: 1em;
                 }
+            }
+
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, li,th, td{
+                line-height: 1.8;
             }
         }
 
