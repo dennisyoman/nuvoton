@@ -2874,43 +2874,67 @@ body.noscroll {
         .article {
             color: $text;
             font-size:16px;
+            line-height: 1.6;
 
             h2 {
                 //color: $main;
                 //font-weight: bold;
                 //font-size: 22px;
-                line-height: 1.8;
-                //margin-bottom: 1em;
+                line-height: 1.6;
+                margin-bottom: 1em;
             }
 
             h3 {
                 //color: #000;
                 //font-weight: bold;
                 //font-size: 18px;
-                line-height: 1.8;
-                //margin-bottom: 1em;
+                line-height: 1.6;
+                margin-bottom: 1em;
             }
 
             p {
                 //font-size: 16px;
-                line-height: 1.8;
-                //margin-bottom: 1em;
+                line-height: 1.6;
+                margin-bottom: 1em;
             }
 
-            ul,ol {
-                list-style: decimal outside;
-                //margin-bottom: 1em;
+            ul{
+                list-style: disc outside;
+                margin-bottom: 1em;
 
                 li {
                     margin-left: 2em;
-                    font-size: 16px;
-                    line-height: 1.5;
-                    margin-bottom: .3em;
+                    //font-size: 16px;
+                    line-height: 1.6;
+                    //margin: .2em 0;
                 }
             }
 
-            h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, li,th, td{
-                line-height: 1.8;
+            ol {
+                list-style: decimal outside;
+                margin-bottom: 1em;
+
+                li {
+                    margin-left: 2em;
+                    //font-size: 16px;
+                    line-height: 1.6;
+                    margin: .2em 0;
+                }
+            }
+
+            h1, h2, h3, h4, h5, h6, p, blockquote, a, li,th, td{
+                line-height: 1.6;
+            }
+
+            strong{
+                font-weight:bold;
+            }
+
+            em{
+                font-style: italic;
+            }
+            table{
+                margin-bottom:1em;
             }
         }
 
