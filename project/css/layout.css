@@ -3026,6 +3026,7 @@ body.noscroll {
 .content .main .article ul li {
   margin-left: 2em;
   line-height: 1.6;
+  margin: .4em;
 }
 /* line 2913, ../sass/layout.scss */
 .content .main .article ol {
@@ -3036,7 +3037,7 @@ body.noscroll {
 .content .main .article ol li {
   margin-left: 2em;
   line-height: 1.6;
-  margin: .2em 0;
+  margin: .4em;
 }
 /* line 2925, ../sass/layout.scss */
 .content .main .article h1, .content .main .article h2, .content .main .article h3, .content .main .article h4, .content .main .article h5, .content .main .article h6, .content .main .article p, .content .main .article blockquote, .content .main .article a, .content .main .article li, .content .main .article th, .content .main .article td {
