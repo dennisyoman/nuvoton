@@ -93,6 +93,16 @@ $(document).ready(
             }
         });
 
+        $(".aside").find("a").each(function(index) {
+
+            if($(this).attr("href").length>0 && $(this).attr("href")!="#"){
+                $(this).click(function(e) {
+                    e.stopPropagation();
+
+                })
+            }
+        });
+
         $(".sub_nav").find("li").each(function(index) {
             if($(this).children("ul").length>0){
                 $(this).addClass("has-children");
@@ -139,6 +149,7 @@ $(document).ready(
                 e.preventDefault();
                 $(this).addClass("selected").siblings(".selected").removeClass("selected");
                 $(".section.list > ul").removeClass().addClass($(this).attr("typ"));
+                $(".section.list_article > ul").removeClass().addClass($(this).attr("typ"));
             }).eq(0).click();
         }
 
