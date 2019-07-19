@@ -2862,12 +2862,12 @@ body.noscroll {
                 @include opacity(0.3);
             }
 
-            form{
+            .col-container{
                 display:flex;
                 justify-content:center;
             }
 
-            .divide2 {
+            .col {
                 width: 50%;
                 margin-right: 10%;
                // float: left;
@@ -2877,10 +2877,10 @@ body.noscroll {
             }
 
             @media screen and (max-width: $mobile) {
-                form{
+                .col-container{
                     display:block;
                 }
-                .divide2 {
+                .col {
                     width: 100%;
                     margin-right: 0;
                     float: none;

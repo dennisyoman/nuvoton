@@ -2993,26 +2993,26 @@ body.noscroll {
   filter: alpha(opacity=30);
 }
 /* line 2865, ../sass/layout.scss */
-.content .main .form form {
+.content .main .form .col-container {
   display: flex;
   justify-content: center;
 }
 /* line 2870, ../sass/layout.scss */
-.content .main .form .divide2 {
+.content .main .form .col {
   width: 50%;
   margin-right: 10%;
 }
 /* line 2874, ../sass/layout.scss */
-.content .main .form .divide2:last-child {
+.content .main .form .col:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 850px) {
   /* line 2880, ../sass/layout.scss */
-  .content .main .form form {
+  .content .main .form .col-container {
     display: block;
   }
   /* line 2883, ../sass/layout.scss */
-  .content .main .form .divide2 {
+  .content .main .form .col {
     width: 100%;
     margin-right: 0;
     float: none;
