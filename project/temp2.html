@@ -24,6 +24,7 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" rev="stylesheet" media="screen" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" rev="stylesheet" media="screen" href="css/layout.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!-- javascript -->
@@ -32,6 +33,7 @@
     <script src="js/hammer.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script type="text/javascript" src="js/web.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
     
 </head>
@@ -844,8 +846,25 @@
                         </ul>
                     </div>
                 </div>
-
-
+                
+        
+                <!-- 搜尋模式  -->
+                <form id="advancedSearch" method="post" class="advancedSearch period incontent" action="">
+                    <!--<select id="xxx">
+                        <option value="0">可攜式設備</option>
+                        <option value="1">音訊/視訊</option>
+                        <option value="2">消費性產品</option>
+                    </select>-->
+                    <input type="text" id="as" placeholder="搜尋..."/>
+                    <div class="perioddiv">
+                        <input class="datepicker" type="text" placeholder="起日"/>
+                        to
+                        <input class="datepicker" type="text" placeholder="訖日"/>
+                        <input type="reset" value="Reset"/>
+                    </div>
+                    <input type="submit" value=""/>
+                </form>
+       
                 <div id="section1" class="section article">
                     <div class="gallery autoplay">
                         <ul class="slides">
