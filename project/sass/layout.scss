@@ -3857,17 +3857,19 @@ body.noscroll {
             color: #fff;
             padding: 0 15px;
             border-right: 1px solid rgba(255, 255, 255, 0.3);
+            white-space: nowrap;
 
             &:hover, &:focus {
                 text-decoration: underline;
             }
 
-            &:nth-child(2) {
+            &:last-child {
                 border: none;
             }
         }
 
         @media screen and (max-width: $mobile) {
+            padding: 10px 0;
             text-align: center;
 
             a {
