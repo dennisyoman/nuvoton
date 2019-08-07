@@ -3140,6 +3140,92 @@ body.noscroll {
                 margin-bottom: $gap;
             }
         }
+
+        .site_index{
+            a{
+                display:inline-block;
+                font-size:15px;
+                color:#666;
+                text-decoration:none;
+                line-height: 1.5;
+
+                &:hover{
+                    text-decoration:underline;
+                }
+            }
+
+            .group{
+                display:inline-block;
+                width:100%;
+                margin-bottom:50px;
+                h3{
+                    border-bottom:3px solid $text;
+                    margin-bottom:10px;
+                    a{
+                        color:#000;
+                        font-weight:bold;
+                        margin:10px 0;
+                        font-size:18px;
+
+                        &::before{
+                            content:"．";
+                            color:$main;
+                            margin-right:4px;
+                        }
+
+                        &:hover{
+                            text-decoration:none;
+                            color:$main;
+                        }
+                    }
+                }
+
+                > ul{
+                    margin-bottom:20px;
+                    padding-left:1em;
+                    >li{
+                        display:inline-block;
+                        width:21%;
+                        margin-right:3%;
+
+                        @media screen and (max-width: $mobile) {
+                            width:46%;
+                            margin-right:3%;
+                        }
+
+                        @media screen and (max-width: 400px) {
+                            width:100%;
+                            margin-right:0%;
+                        }
+                        
+                        >a{
+                            color:#000;
+                            //font-weight:bold;
+                            margin-bottom:8px;
+                            display:block;
+
+                        }
+
+                        >ul{
+                            border-left:1px solid #ddd;
+                            margin-bottom:20px;
+                            padding-left:.5rem;
+                            margin-left:.5em;
+                            @include box;
+                            >li{
+    
+                                > a{
+                                    font-size:13px;
+                                    margin-bottom:5px;
+                                    display:block;
+                                    background:$gray;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     &::after {
