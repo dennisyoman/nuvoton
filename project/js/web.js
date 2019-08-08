@@ -141,6 +141,20 @@ $(document).ready(
                     })
                 })
             }).eq(0).addClass("selected");
+            //hammer
+            var elem = $(".tab").eq(0).find("> ul");
+            var swiper_tab = new Hammer(elem[0]);
+            var sx = elem.scrollLeft();
+            //swiper_tab.get('pan').set({ direction: Hammer.DIRECTION_HORI });
+            swiper_tab.on("pan", function(ev) { 
+                //console.log(ev.deltaX);
+                elem.addClass("dragging");
+                elem.scrollLeft( sx-ev.deltaX );
+                if (ev.isFinal) {
+                    elem.removeClass("dragging");
+                    sx = elem.scrollLeft();
+                }
+            });
         }
 
         //filter
