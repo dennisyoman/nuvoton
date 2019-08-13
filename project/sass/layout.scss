@@ -627,18 +627,37 @@ body.noscroll {
                             }
                         }
 
-                        > li.has-children {
+                        > li {
                             width: 50%;
                             float: left;
 
-                            &:nth-child(even) {
-                                float: right;
+                            > a {
+                                color: $main;
                             }
 
                             @media screen and (max-width: $mobile) {
                                 width: 100%;
                                 float: none !important;
                                 border-bottom: 1px solid #eee;
+
+                                > a {
+                                    color: $text;
+                                }
+                            }
+                        }
+
+                        > li.has-children {
+                            //width: 50%;
+                            //float: left;
+
+                            &:nth-child(even) {
+                                float: right;
+                            }
+
+                            @media screen and (max-width: $mobile) {
+                                //width: 100%;
+                                //float: none !important;
+                                //border-bottom: 1px solid #eee;
 
                                 &::after {
                                     content: "\f105";
@@ -2123,15 +2142,14 @@ body.noscroll {
 
                 @include box;
 
-                
-
                 > ul {
                     white-space: nowrap;
                     overflow: hidden;
 
-                    &.dragging{
+                    &.dragging {
                         overflow: hidden;
-                        >li{
+
+                        > li {
                             pointer-events: none;
                         }
                     }
@@ -2173,6 +2191,7 @@ body.noscroll {
                             white-space: nowrap;
                             text-decoration: none;
                             border-bottom: 4px solid transparent;
+
                             //avoid native drag
                             -webkit-user-select: none;
                             -moz-user-select: none;
@@ -2180,6 +2199,7 @@ body.noscroll {
                             user-select: none;
                             user-drag: none;
                             -webkit-user-drag: none;
+
                             //
 
                             &::before {
