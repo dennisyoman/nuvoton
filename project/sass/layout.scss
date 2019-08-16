@@ -915,6 +915,11 @@ body.noscroll {
                             display: none;
                         }
                     }
+
+                    > ul {
+                        left: auto;
+                        right:-20px;
+                    }
                 }
 
                 &.cart {
@@ -937,6 +942,11 @@ body.noscroll {
                             display: none;
                         }
                     }
+
+                    > ul {
+                        left: auto;
+                        right:-20px;
+                    }
                 }
 
                 &.lang {
@@ -951,6 +961,10 @@ body.noscroll {
                         &::after {
                             display: none;
                         }
+                    }
+                    > ul {
+                        left: auto;
+                        right:-20px;
                     }
                 }
 
