@@ -2,9 +2,20 @@
 
 @import "./common";
 @import "./mixin";
-
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('../resources/fonts/opensans-regular-webfont.eot');
+    src: url('../resources/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../resources/fonts/opensans-regular-webfont.woff2') format('woff2'),
+    url('../resources/fonts/opensans-regular-webfont.woff') format('woff'),
+    url('../resources/fonts/opensans-regular-webfont.ttf') format('truetype'),
+    url('../resources/fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 html, body, select, option, .modal, input {
-    font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', "Helvetica Neue", "Heiti TC","儷黑 Pro", "LiHei Pro","文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica;
+    //font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', "Helvetica Neue", "Heiti TC","儷黑 Pro", "LiHei Pro","文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica;
+    font-family: open_sansregular, Verdana, Arial, "微軟正黑體", "新細明體", "メイリオ", Meiryo, MS Gothic, sans-serif;
 
     //background: #000;
 }
@@ -1907,7 +1918,7 @@ body.noscroll {
 
             > div {
                 padding: $gap2 $gap;
-                padding-bottom: $gap2 * 2;
+                //padding-bottom: 15px;
                 padding-right: 70px;
                 max-width: $maxW;
                 margin: 0 auto;
@@ -1957,7 +1968,7 @@ body.noscroll {
 
                 > div {
                     padding: $gap2;
-                    padding-top: $gap;
+                    //padding-top: $gap;
                     padding-left: $gap;
 
                     &::after {
