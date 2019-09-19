@@ -92,6 +92,16 @@ $(document).ready(
                 })
             }
         });
+        $(".aside").find("div").each(function(index) {
+            if($(this).children("ul").length>0){
+                $(this).addClass("has-children");
+                $(this).click(function(e) {
+                    e.stopPropagation();
+                    $(this).children("ul").toggle("fast");
+
+                })
+            }
+        });
 
         $(".aside").find("a").each(function(index) {
 

@@ -1773,6 +1773,52 @@ body.noscroll {
             }
         }
 
+        .aside_nav{
+            >div{
+                &.has-children {
+                    position: relative;
+
+                    > a {
+                        display: inline-block;
+                    }
+
+                    &:hover {
+                        > ul {
+                            //display:block;
+                       
+                        }
+
+                        &::before {
+                            color: $main;
+                        }
+                    }
+
+                    &::before {
+                        line-height: 30px;
+                        font-size: 14px;
+                        content: "\f107";
+                        font-family: 'fontawesome';
+                        color: rgba(0, 0, 0, 0.3);
+                        position: absolute;
+                        top: 0;
+                        right: 10px;
+
+                        @include transition(all, 0.3s);
+
+                        @media screen and (max-width: $mobile) {
+                            line-height: 50px;
+                        }
+                    }
+
+                    >ul{
+                        display:none;
+                    }
+                }
+            }
+        }
+
+
+
         ul {
             @include box;
 
