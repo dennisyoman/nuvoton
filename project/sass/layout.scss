@@ -765,8 +765,9 @@ body.noscroll {
                 }
 
                 @media screen and (max-width: $mobile) {
-                    float: left;
-                    width: 33.33%;
+                    //float: left;
+                    min-width: 32%;
+                    padding:0 15px;
                     border-right: 1px solid rgba(255, 255, 255, 0.3);
 
                     @include box;
@@ -775,6 +776,10 @@ body.noscroll {
                         border: none;
                     }
                 }
+            }
+            @media screen and (max-width: $mobile) {
+                overflow: auto;
+                white-space: nowrap;
             }
         }
 
