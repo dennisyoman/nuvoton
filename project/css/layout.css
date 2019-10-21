@@ -405,7 +405,6 @@ body.noscroll {
   z-index: 1;
   background: #f8f8f8;
   width: 280px;
-  overflow: auto;
   height: calc(100vh - 100px);
   padding-bottom: 80px;
   -webkit-box-sizing: border-box;
