@@ -2,17 +2,15 @@
 
 @import "./common";
 @import "./mixin";
+
 @font-face {
     font-family: 'open_sansregular';
-    src: url('../resources/fonts/opensans-regular-webfont.eot');
-    src: url('../resources/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../resources/fonts/opensans-regular-webfont.woff2') format('woff2'),
-    url('../resources/fonts/opensans-regular-webfont.woff') format('woff'),
-    url('../resources/fonts/opensans-regular-webfont.ttf') format('truetype'),
-    url('../resources/fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    src: url("../resources/fonts/opensans-regular-webfont.eot");
+    src: url("../resources/fonts/opensans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../resources/fonts/opensans-regular-webfont.woff2") format("woff2"), url("../resources/fonts/opensans-regular-webfont.woff") format("woff"), url("../resources/fonts/opensans-regular-webfont.ttf") format("truetype"), url("../resources/fonts/opensans-regular-webfont.svg#open_sansregular") format("svg");
     font-weight: normal;
     font-style: normal;
 }
+
 html, body, select, option, .modal, input {
     //font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', "Helvetica Neue", "Heiti TC","儷黑 Pro", "LiHei Pro","文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica;
     font-family: open_sansregular, Verdana, Arial, "微軟正黑體", "新細明體", "メイリオ", Meiryo, MS Gothic, sans-serif;
@@ -767,7 +765,7 @@ body.noscroll {
                 @media screen and (max-width: $mobile) {
                     //float: left;
                     min-width: 32%;
-                    padding:0 15px;
+                    padding: 0 15px;
                     border-right: 1px solid rgba(255, 255, 255, 0.3);
 
                     @include box;
@@ -777,6 +775,7 @@ body.noscroll {
                     }
                 }
             }
+
             @media screen and (max-width: $mobile) {
                 overflow: auto;
                 white-space: nowrap;
@@ -934,7 +933,7 @@ body.noscroll {
 
                     > ul {
                         left: auto;
-                        right:-20px;
+                        right: -20px;
                     }
                 }
 
@@ -961,7 +960,7 @@ body.noscroll {
 
                     > ul {
                         left: auto;
-                        right:-20px;
+                        right: -20px;
                     }
                 }
 
@@ -978,9 +977,10 @@ body.noscroll {
                             display: none;
                         }
                     }
+
                     > ul {
                         left: auto;
-                        right:-20px;
+                        right: -20px;
                     }
                 }
 
@@ -1778,8 +1778,8 @@ body.noscroll {
             }
         }
 
-        .aside_nav{
-            >div{
+        .aside_nav {
+            > div {
                 &.has-children {
                     position: relative;
 
@@ -1815,14 +1815,12 @@ body.noscroll {
                         }
                     }
 
-                    >ul{
-                        display:none;
+                    > ul {
+                        display: none;
                     }
                 }
             }
         }
-
-
 
         ul {
             @include box;
@@ -1969,6 +1967,7 @@ body.noscroll {
 
             > div {
                 padding: $gap2 $gap;
+
                 //padding-bottom: 15px;
                 padding-right: 70px;
                 max-width: $maxW;
@@ -2019,6 +2018,7 @@ body.noscroll {
 
                 > div {
                     padding: $gap2;
+
                     //padding-top: $gap;
                     padding-left: $gap;
 
@@ -2319,15 +2319,15 @@ body.noscroll {
 
                             ul {
                                 display: block;
-                                >li{
-                                    display:inline-block;
+
+                                > li {
+                                    display: inline-block;
                                 }
                             }
 
-                            
-
                             > li {
                                 display: block;
+
                                 //white-space: nowrap;
                                 padding: 5px 0;
 
@@ -2338,19 +2338,19 @@ body.noscroll {
                                     min-width: none;
                                     margin-right: $gap2;
                                     margin-bottom: $gap2;
-                                    border-bottom:1px solid #ddd;
+                                    border-bottom: 1px solid #ddd;
 
                                     > a {
                                         color: $main;
-                                        padding:0;
+                                        padding: 0;
                                         display: inline-block;
                                         text-decoration: none;
                                         margin-right: 8px;
 
-                                        &::after{
-                                            content:">";
-                                            margin-left:8px;
-                                            color:$text;
+                                        &::after {
+                                            content: ">";
+                                            margin-left: 8px;
+                                            color: $text;
                                         }
                                     }
                                 }
@@ -4089,6 +4089,84 @@ body.noscroll {
             span {
                 display: block;
                 margin-top: 10px;
+            }
+        }
+    }
+}
+
+.tabList {
+    width: 100%;
+
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    > ul {
+        display: -webkit-inline-box;
+        width: auto;
+        height: auto;
+        overflow-x: auto;
+
+        > li {
+            width: auto;
+            height: auto;
+
+            a.contentTab {
+                display: inline-block;
+                width: auto;
+                font-size: 12px;
+                line-height: 24px;
+                text-align: center;
+                padding: 0 0;
+                letter-spacing: 0.1em;
+                text-decoration: none;
+                vertical-align: middle;
+                margin-left: 10px;
+            }
+
+            .queryfirst {
+                margin-left: 10px;
+            }
+
+            .searchTab {
+                text-decoration: none !important;
+                font-size: 12px;
+                padding: 0 5px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                //
+                border-right:1px solid rgba(255,255,255,.5);
+                &::after {
+                    color: rgba(245 ,181,145,1);
+                    content: "\f00d";
+                    margin-left:5px;
+                    font-family: 'fontawesome';
+                    display:inline-block;
+                    @include scale(.8);
+                }
+                //background:rgba(245 ,181,145,1) !important;
+                //color:#333 !important;
+                
+
+                /* margin-right: 10px; */
+                /* margin-left: 10px;*/
+            }
+
+            .collectionThesys {
+                display: inline-block;
+                width: auto;
+                //font-size: 16px;
+                color: #fff;
+                line-height: 24px;
+                //text-align: center;
+                background: #e6290f;
+                //padding: 13px 20px;
+                letter-spacing: 0.1em;
+                //text-decoration: none;
+                vertical-align: middle;
             }
         }
     }
