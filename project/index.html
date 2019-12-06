@@ -627,12 +627,13 @@
                         </ul>
                     </nav>
                 </li>
+                <div id="promotion" class="promotion menuAdLi">
+                    <a href="#">活動廣告1</a>
+                    <a href="#">活動廣告2</a>
+                    <a href="#">活動廣告3</a>
+                </div>
             </ul>
-            <div id="promotion" class="promotion">
-                <a href="#">活動廣告1</a>
-                <a href="#">活動廣告2</a>
-                <a href="#">活動廣告3</a>
-            </div>
+            
 
             <!-- sub menu start -->
             <ul class="sub_nav">
@@ -916,3 +917,56 @@
     </div>
 </body>
 </html>
+<script>
+$(document).ready(function() {
+    //主選單滑鼠hover過去就會自動開合
+    var liItem = $(".main_nav .cd-dropdown-wrapper");                                           //主選單上面每一個li區塊
+    var divTag = "<div class='overlay' id='fo'></div>";
+    console.log(!isMobile());
+    if(!isMobile()){
+        liItem.hover(
+            function(){
+                liItem.clearQueue(); 
+                liItem.removeClass("active");
+                //console.log($(this));
+                $(this).addClass("active");
+                $("#footercontainer").append(divTag);                                       //選單展開時的背景黑幕開啟
+                if ($(".menuAdLi a").length != 0){
+                    $("#promotion").addClass("active");                                        //選單底部的宣傳區塊展開
+                }
+            },function(){
+                $(this).delay(150).queue(function(){
+                    $(this).removeClass("active");
+                    //$(".wrapper div.overlay").removeClass("overlay");  
+                    $("#fo").remove();                         //選單收起時的背景黑幕關閉
+                    $("#promotion").removeClass("active");
+                    $(this).dequeue();
+                })
+            });
+    }
+    $(".menuAdLi").hover(function(){ 
+        liItem.clearQueue();                              
+        
+    },function(){
+        
+    });
+    $(".main_nav li.has-children a").hover(function(){                                      //主選單內第一層的細項
+        if ($(".menuAdLi a").length != 0){
+            //$("#promotion").addClass("active");
+        }
+    },function(){
+        if ($("#promotion").hasClass("active")){
+            //$("#promotion").removeClass("active"); 
+        }
+    });
+
+    function isMobile(){
+        console.log($(window).width()+17);
+        if(($(window).width()+17) <1025){
+            return true;
+        }else{
+            return false;
+        }
+    }
+});
+</script>

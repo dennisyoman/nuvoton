@@ -216,7 +216,7 @@ body.noscroll {
 
         .promotion {
             position: fixed;
-            bottom: -100px;
+            bottom: -500px;
             left: 0;
             width: $navW * 3;
 
@@ -224,37 +224,16 @@ body.noscroll {
             background: #fff;
             border-top: 1px solid #ddd;
             border-top: 10px solid $main;
-            display: none;
+            //display: none;
             padding: 5px 0;
             z-index: 1;
 
             @include box;
+            @include transition(bottom,1s);
 
             //overflow: auto;
             @include box-shadow((-12px) -8px 16px rgba(255, 255, 255, 1));
 
-            white-space: nowrap;
-            animation-name: slideUpIn;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-            animation-duration: 0.5s;
-            animation-delay: 1s;
-
-            @keyframes slideUpIn {
-                0% {
-                    bottom: -100px;
-
-                    //@include opacity(0);
-               
-                }
-
-                100% {
-                    bottom: 0;
-
-                    //@include opacity(1);
-               
-                }
-            }
 
             a {
                 height: 50px;
@@ -272,6 +251,7 @@ body.noscroll {
             }
 
             &.active {
+                bottom: 0;
                 display: block;
             }
         }

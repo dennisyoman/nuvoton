@@ -25,41 +25,6 @@ $(document).ready(
             $("#nav_search").toggleClass("active");
         })
 
-        //// update1206 start
-        $(".nav, .btn_search").hover(
-            function() {$("#wrapper .overlay").click();}
-        )
-        $(".cd-dropdown-trigger").hover(
-            function() {
-                $(this).delay(200).queue(function(){
-                    //reset all trigger
-                    $(".cd-dropdown-wrapper.active").removeClass("active");
-                    //active selected trigger
-                    $(this).parent().addClass("active");
-                    //setup overlay
-                    if($("#wrapper .overlay").length<1){
-                        $("#wrapper").append("<div class='overlay'></div>");
-                        $("#wrapper .overlay").unbind().hover(
-                            function() {
-                                $(".cd-dropdown-wrapper.active").find(".cd-dropdown-trigger").click();
-                            }
-                        ).click(function() {
-                            $(".cd-dropdown-wrapper.active").find(".cd-dropdown-trigger").click();
-                        })
-                    }
-                    $("body").addClass("noscroll");
-                    $("#promotion").addClass("active");
-                    $(this).dequeue();
-                    
-                });
-                
-            },
-            function() {
-                $(this).clearQueue(); 
-            }
-        )
-
-        //// update1206 end
         $(".cd-dropdown-trigger").click(function() {
             if($(this).parent().hasClass("active")){
                 $("#wrapper .overlay").remove();
