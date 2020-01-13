@@ -51,3 +51,7 @@ table {
     all: unset;
     all: initial;
 }
+
+.editor img{
+	max-width:100% !important;
+}
